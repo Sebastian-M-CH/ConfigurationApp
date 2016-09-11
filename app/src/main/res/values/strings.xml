@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DynamicConf</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="settings_array">
+        <item>Main Page</item>
+        <item>Widget settings</item>
+        <item>Field Settings</item>
+    </string-array>
+
+
+</resources>
