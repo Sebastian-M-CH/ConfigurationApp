@@ -63,7 +63,6 @@ public class Page_Parent extends AppCompatActivity {
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
-                int i = 0;
             }
 
         });
