@@ -3,6 +3,7 @@ package ch.sebastianm.dynamicconf.main.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
@@ -26,11 +27,12 @@ public class Main_Overview extends Page_Parent {
         TableLayout ll = (TableLayout) findViewById(R.id.contentTableLayout);
         TableRow row= new TableRow(this);
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+        row.setGravity(Gravity.RIGHT);
         row.setLayoutParams(lp);
         GPSButtonControl gps = new GPSButtonControl();
-        row.addView(gps.getPreparedButton(getBaseContext()));
         row.addView(gps.getPreparedButton(getApplicationContext()));
         ll.addView(row);
+        ll.addView(gps.getPreparedButton(getApplicationContext()),1);
     }
 
     @Override
