@@ -1,5 +1,6 @@
 package ch.sebastianm.dynamicconf.main.models.ButtonControls;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
@@ -13,25 +14,32 @@ import ch.sebastianm.dynamicconf.main.models.ControlParent;
  */
 public class ButtonControl extends ControlParent {
 
-    public Button prepare(Button button)
-    {
-        button.setOnClickListener(getListener());
+    public Button prepare(Button button, Context con) {
+        button.setOnClickListener(getListener(con));
+        button.setText(getTitel());
         return button;
+    }
+
+    public Button getPreparedButton(Context context){
+        return prepare(new Button(context), context);
     }
 
     public String getTitel(){
         return "Not Implemented";
     }
 
+    public Intent getFlagedIntent(){
+         return getIntent().setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    }
+
     public Intent getIntent(){
         return null;
     }
 
-    public View.OnClickListener getListener() {
+    public View.OnClickListener getListener(final Context con) {
         return new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
-                v.getContext().startActivity(getIntent());
+                con.startActivity(getFlagedIntent());
             }
         };
     }

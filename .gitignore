@@ -18,6 +18,10 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
+Files
+workspace.xml
+*.lock
+
 # Windows shortcuts
 *.lnk
 
@@ -50,6 +54,3 @@ Network Trash Folder
 Temporary Items
 .apdisk
 .idea/workspace.xml
-.gradle/2.8/taskArtifacts/cache.properties.lock
-.idea/workspace.xml
-.gradle/2.8/taskArtifacts/cache.properties.lock

@@ -19,8 +19,7 @@ public class Field_Settings extends Page_Parent {
     }
 
     @Override
-    public int getViewPos()
-    {
+    public int getViewPos() {
         return 2;
     }
 }

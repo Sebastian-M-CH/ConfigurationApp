@@ -15,7 +15,7 @@ public class GPSButtonControl extends ButtonControl {
     { return "GPS Settings";}
 
     @Override
-    public Intent getIntent(){
-        return new Intent(Settings.ACTION_DEVICE_INFO_SETTINGS);
+    public Intent getIntent() {
+       return new Intent(Settings.ACTION_DEVICE_INFO_SETTINGS);
     }
 }
