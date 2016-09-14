@@ -14,14 +14,14 @@ import ch.sebastianm.dynamicconf.main.models.ControlParent;
  */
 public class ButtonControl extends ControlParent {
 
-    public Button prepare(Button button, Context con) {
-        button.setOnClickListener(getListener(con));
+    public Button prepareBusinessButton(Button button, Context con) {
+        button.setOnClickListener(getBusinessListener(con));
         button.setText(getTitel());
         return button;
     }
 
-    public Button getPreparedButton(Context context){
-        return prepare(new Button(context), context);
+    public Button getBusinessButton(Context context){
+        return prepareBusinessButton(new Button(context), context);
     }
 
     public String getTitel(){
@@ -36,10 +36,19 @@ public class ButtonControl extends ControlParent {
         return null;
     }
 
-    public View.OnClickListener getListener(final Context con) {
+    public View.OnClickListener getBusinessListener(final Context con) {
         return new View.OnClickListener() {
             public void onClick(View v) {
                 con.startActivity(getFlagedIntent());
+            }
+        };
+    }
+
+    public View.OnClickListener getSettingsListener(final Intent view, final Context con) {
+        return new View.OnClickListener() {
+            public void onClick(View v) {
+                view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                con.startActivity(view);
             }
         };
     }

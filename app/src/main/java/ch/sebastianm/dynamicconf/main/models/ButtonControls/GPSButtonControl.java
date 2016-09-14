@@ -2,8 +2,6 @@ package ch.sebastianm.dynamicconf.main.models.ButtonControls;
 
 import android.content.Intent;
 import android.provider.Settings;
-import android.view.View;
-import android.widget.Toast;
 
 /**
  * Created by Sebastian on 12.09.2016.
