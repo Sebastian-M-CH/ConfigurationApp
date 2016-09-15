@@ -1,4 +1,4 @@
-package ch.sebastianm.dynamicconf.main.models.ButtonControls;
+package ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls;
 
 import android.content.Intent;
 import android.provider.Settings;
@@ -9,8 +9,14 @@ import android.provider.Settings;
 public class GPSButtonControl extends ButtonControl {
 
     @Override
-    public String getTitel()
-    { return "GPS Settings";}
+    public String getId(){
+        return "gpsBtn";
+    }
+
+    @Override
+    public String getTitel() {
+        return "GPS Settings";
+    }
 
     @Override
     public Intent getIntent() {

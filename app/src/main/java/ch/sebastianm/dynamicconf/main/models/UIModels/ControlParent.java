@@ -1,7 +1,4 @@
-package ch.sebastianm.dynamicconf.main.models;
-
-import java.util.List;
-import java.util.ResourceBundle;
+package ch.sebastianm.dynamicconf.main.models.UIModels;
 
 /**
  * Created by Sebastian on 12.09.2016.

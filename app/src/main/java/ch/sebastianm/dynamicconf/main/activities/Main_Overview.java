@@ -6,7 +6,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 
 import ch.sebastianm.dynamicconf.R;
-import ch.sebastianm.dynamicconf.main.models.ButtonControls.GPSButtonControl;
+import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.GPSButtonControl;
 
 public class Main_Overview extends Page_Parent {
 
