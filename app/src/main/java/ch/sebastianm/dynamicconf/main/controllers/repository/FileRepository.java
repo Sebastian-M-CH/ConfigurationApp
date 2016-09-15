@@ -1,17 +1,13 @@
-package ch.sebastianm.dynamicconf.main.repository;
-
-import android.content.SharedPreferences;
+package ch.sebastianm.dynamicconf.main.controllers.repository;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import ch.sebastianm.dynamicconf.main.models.Datamodels.WidgetData;
-import ch.sebastianm.dynamicconf.main.models.Widget;
 
 /**
  * Created by Sebastian on 15.09.2016.
@@ -67,7 +63,7 @@ public class FileRepository {
         catch(Exception e) {
         }
     }
-    
+
     public List<WidgetData> getWidgetData() {
         List<WidgetData> widgetDataList = new ArrayList<WidgetData>();
         String[] widgetListSplit = resourceString.split("|");
