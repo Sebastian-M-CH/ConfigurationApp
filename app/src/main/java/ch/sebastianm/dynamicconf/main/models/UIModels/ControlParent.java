@@ -1,5 +1,8 @@
 package ch.sebastianm.dynamicconf.main.models.UIModels;
 
+import android.content.Context;
+import android.widget.Button;
+
 /**
  * Created by Sebastian on 12.09.2016.
  */
@@ -12,4 +15,5 @@ public class ControlParent {
     public void setId(String id) {
         this.id = id;
     }
+    public Button getUIElement(Context con) { return null;}
 }

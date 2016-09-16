@@ -6,9 +6,12 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 
 import ch.sebastianm.dynamicconf.R;
-import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.GPSButtonControl;
+import ch.sebastianm.dynamicconf.main.controllers.MainPageController;
+import ch.sebastianm.dynamicconf.main.models.UIModels.WidgetUI;
 
 public class Main_Overview extends Page_Parent {
+
+    public MainPageController mainPageController = new MainPageController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,17 +21,15 @@ public class Main_Overview extends Page_Parent {
         setUpContent();
     }
 
-    public void setUpContent()
-    {
+    public void setUpContent() {
         TableLayout ll = (TableLayout) findViewById(R.id.contentTableLayout);
-        TableRow row= new TableRow(this);
-        TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
-        row.setGravity(Gravity.RIGHT);
-        row.setLayoutParams(lp);
-        GPSButtonControl gps = new GPSButtonControl();
-        row.addView(gps.getBusinessButton(getApplicationContext()));
-        ll.addView(row);
-        ll.addView(gps.getBusinessButton(getApplicationContext()),1);
+        for (WidgetUI controlParent : mainPageController.getUIWidgets()) {
+            TableRow row= new TableRow(this);
+            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+            row.setLayoutParams(lp);
+            row.addView(controlParent.getControl().getUIElement(getApplicationContext()));
+            ll.addView(row);
+        }
     }
 
     @Override

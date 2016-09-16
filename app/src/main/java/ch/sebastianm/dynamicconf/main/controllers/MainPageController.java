@@ -13,7 +13,7 @@ import ch.sebastianm.dynamicconf.main.controllers.repository.FileRepository;
  */
 public class MainPageController {
 
-   public void MainPageController(Main_Overview view) {
+    public void MainPageController(Main_Overview view) {
        this.view = view;
    }
 

@@ -18,7 +18,8 @@ public class ButtonControl extends ControlParent {
         return button;
     }
 
-    public Button getBusinessButton(Context context){
+    @Override
+    public Button getUIElement(Context context){
         return prepareBusinessButton(new Button(context), context);
     }
 
