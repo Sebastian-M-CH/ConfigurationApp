@@ -10,7 +10,7 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 /**
  * Created by Sebastian on 12.09.2016.
  */
-public class ButtonControl extends ControlParent {
+public class ButtonControl extends ControlParent{
 
     public Button prepareBusinessButton(Button button, Context con) {
         button.setOnClickListener(getBusinessListener(con));
@@ -23,8 +23,9 @@ public class ButtonControl extends ControlParent {
         return prepareBusinessButton(new Button(context), context);
     }
 
+    @Override
     public String getTitel(){
-        return "Not Implemented";
+        return "Buttons";
     }
 
     public Intent getFlagedIntent(){
@@ -51,5 +52,8 @@ public class ButtonControl extends ControlParent {
             }
         };
     }
+
+    @Override
+    public String getGroup() { return "btn";}
 
 }

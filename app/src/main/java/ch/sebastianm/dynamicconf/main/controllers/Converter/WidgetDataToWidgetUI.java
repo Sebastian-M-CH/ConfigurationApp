@@ -3,6 +3,7 @@ package ch.sebastianm.dynamicconf.main.controllers.Converter;
 import java.util.ArrayList;
 import java.util.List;
 
+import ch.sebastianm.dynamicconf.main.constants.ContentClasses;
 import ch.sebastianm.dynamicconf.main.models.Datamodels.WidgetData;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 import ch.sebastianm.dynamicconf.main.models.UIModels.WidgetUI;
@@ -23,7 +24,7 @@ public class WidgetDataToWidgetUI {
         return widgetUIList;
     }
 
-    ModelBase base = ModelBase.getInstance();
+    ContentClasses base = ContentClasses.getInstance();
 
     public ControlParent matchIdToControl(String id) {
         for (ControlParent model: base.getModelList() ) {

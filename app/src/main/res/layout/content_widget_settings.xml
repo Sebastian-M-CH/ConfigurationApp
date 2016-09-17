@@ -18,19 +18,11 @@
         android:layout_alignParentBottom="true">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_row="7"
-            android:layout_column="6">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="WidgetSettings"
-                android:id="@+id/textView"
-                android:layout_gravity="center_horizontal" />
-        </LinearLayout>
+            android:layout_row="12"
+            android:layout_column="6"
+            android:id="@+id/linearLayout"></LinearLayout>
     </GridLayout>
 </RelativeLayout>
