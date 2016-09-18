@@ -23,6 +23,14 @@
             android:layout_height="match_parent"
             android:layout_row="12"
             android:layout_column="6"
-            android:id="@+id/linearLayout"></LinearLayout>
+            android:id="@+id/linearLayout">
+
+            <ExpandableListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/expandableListView"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+        </LinearLayout>
     </GridLayout>
 </RelativeLayout>

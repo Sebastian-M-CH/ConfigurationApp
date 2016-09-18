@@ -18,7 +18,8 @@ public class WidgetSettingsController {
     }
 
     public Widget_Settings view;
-    public SuperClasses superClasses = SuperClasses.getInstance();
+
+    SuperClasses superClasses = SuperClasses.getInstance();
 
     ContentClasses contentClasses = ContentClasses.getInstance();
 

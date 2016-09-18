@@ -68,7 +68,10 @@ public class FileRepository {
         List<WidgetData> widgetDataList = new ArrayList<WidgetData>();
         String[] widgetListSplit = resourceString.split("|");
         for (String widget: widgetListSplit ) {
+            System.out.println(widget);
             String[] widgetSplit = widget.split(";");
+            if(widgetSplit.length != 3)
+                continue;
             WidgetData widgetData = new WidgetData(widgetSplit[0], Integer.parseInt(widgetSplit[1]), Integer.parseInt(widgetSplit[2]));
             widgetDataList.add(widgetData);
         }
