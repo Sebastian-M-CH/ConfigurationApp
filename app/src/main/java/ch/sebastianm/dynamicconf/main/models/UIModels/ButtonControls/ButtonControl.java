@@ -44,14 +44,6 @@ public class ButtonControl extends ControlParent{
         };
     }
 
-    public View.OnClickListener getSettingsListener(final Intent view, final Context con) {
-        return new View.OnClickListener() {
-            public void onClick(View v) {
-                view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                con.startActivity(view);
-            }
-        };
-    }
 
     @Override
     public String getGroup() { return "btn";}

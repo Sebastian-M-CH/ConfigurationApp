@@ -8,14 +8,20 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import ch.sebastianm.dynamicconf.R;
+import ch.sebastianm.dynamicconf.main.activities.Main_Overview;
+import ch.sebastianm.dynamicconf.main.activities.Main_Placement;
+import ch.sebastianm.dynamicconf.main.activities.Widget_Settings;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
@@ -48,6 +54,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                              boolean isLastChild, View convertView, ViewGroup parent) {
 
         final String childText = ((ControlParent) getChild(groupPosition, childPosition)).getTitel();
+        final String id = ((ControlParent) getChild(groupPosition, childPosition)).getId();
 
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this._context
@@ -55,11 +62,27 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = infalInflater.inflate(R.layout.list_item, null);
         }
 
-        TextView txtListChild = (TextView) convertView
+        Button buttonChild = (Button) convertView
                 .findViewById(R.id.lblListItem);
 
-        txtListChild.setText(childText);
+        buttonChild.setText(childText);
+        buttonChild.setOnClickListener(getPlacementListener(convertView.getContext(), id));
         return convertView;
+    }
+
+    public View.OnClickListener getPlacementListener(final Context con, String id) {
+        return new View.OnClickListener() {
+            public void onClick(View v) {
+                con.startActivity(getFlagedIntent(con));
+            }
+        };
+    }
+    public Intent getFlagedIntent(Context con){
+        return getIntent(con).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    }
+
+    public Intent getIntent(Context con) {
+       return new Intent(con, Main_Placement.class);
     }
 
     @Override
