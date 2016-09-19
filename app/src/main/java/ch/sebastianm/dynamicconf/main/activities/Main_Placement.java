@@ -1,9 +1,14 @@
 package ch.sebastianm.dynamicconf.main.activities;
 
+import android.app.ActionBar;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.controllers.MainPageController;
@@ -22,9 +27,15 @@ public class Main_Placement extends Page_Parent {
     }
 
     public void setUpContent() {
-        TableLayout ll = (TableLayout) findViewById(R.id.contentTableLayout);
-        ll.setBackgroundColor(Color.BLACK);
 
+        TableLayout ll = (TableLayout) findViewById(R.id.contentTableLayout);
+        for (WidgetUI controlParent : mainPageController.getUIWidgets()) {
+            TableRow row= new TableRow(this);
+            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+            row.setLayoutParams(lp);
+            row.addView(controlParent.getControl().getUIElement(getApplicationContext()));
+            ll.addView(row);
+        }
     }
 
     @Override
