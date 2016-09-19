@@ -28,7 +28,7 @@ public class Main_Placement extends Page_Parent {
 
     public void setUpContent() {
 
-        TableLayout ll = (TableLayout) findViewById(R.id.contentTableLayout);
+        TableLayout ll = null;
         for (WidgetUI controlParent : mainPageController.getUIWidgets()) {
             TableRow row= new TableRow(this);
             TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
