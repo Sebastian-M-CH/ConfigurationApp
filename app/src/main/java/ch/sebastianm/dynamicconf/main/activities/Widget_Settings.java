@@ -1,5 +1,6 @@
 package ch.sebastianm.dynamicconf.main.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
@@ -24,11 +25,16 @@ public class Widget_Settings extends Page_Parent {
     List<String> listDataHeader;
     HashMap<String, List<ControlParent>> listDataChild;
 
+    String placement;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_widget_settings);
-        setUpSpinner();
+        setUpNavButton();
+        Bundle extras = getIntent().getExtras();
+        placement = extras.getString("placement");
+        widgetSettingsController.getPlacement(Integer.valueOf(placement.split(";")[0]),Integer.valueOf(placement.split(";")[1]));
         createContent();
 
     }
@@ -59,10 +65,4 @@ public class Widget_Settings extends Page_Parent {
 
     }
 
-
-    @Override
-    public int getViewPos()
-    {
-        return 1;
-    }
 }

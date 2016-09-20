@@ -25,18 +25,19 @@
                 android:text="DynamicConf"
                 android:textSize="5mm"/>
 
-            <Spinner
-                android:id="@+id/spinner_nav_settings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:textColor="#00f0ff"
-                android:layout_gravity="right"
-                android:layout_marginRight="3mm"
-                android:entries="@array/settings_array"
-                android:popupBackground="#000000"
-                />
+            <Button
+            android:id="@+id/settingsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:layout_marginRight="3mm"
+            android:entries="@array/settings_array"
+            android:text="Settings"
+            android:textColor="#D3D3D3"
+            android:background="#000000"
+            />
 
     </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>

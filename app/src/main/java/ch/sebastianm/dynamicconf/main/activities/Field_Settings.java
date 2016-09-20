@@ -17,11 +17,6 @@ public class Field_Settings extends Page_Parent {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_field_settings);
-        setUpSpinner();
-    }
-
-    @Override
-    public int getViewPos() {
-        return 2;
+        setUpNavButton();
     }
 }

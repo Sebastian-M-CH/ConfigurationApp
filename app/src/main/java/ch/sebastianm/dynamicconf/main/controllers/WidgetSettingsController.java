@@ -17,6 +17,15 @@ public class WidgetSettingsController {
         this.view = view;
     }
 
+    private int x;
+    private int y;
+
+    public void getPlacement(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
     public Widget_Settings view;
 
     SuperClasses superClasses = SuperClasses.getInstance();
@@ -36,6 +45,12 @@ public class WidgetSettingsController {
         }
         return result;
     }
+
+    public void save(String id) {
+        // Savelogic
+
+    }
+
     public List<ControlParent> getSuperclasses() {
         return superClasses.getModelList();
     }

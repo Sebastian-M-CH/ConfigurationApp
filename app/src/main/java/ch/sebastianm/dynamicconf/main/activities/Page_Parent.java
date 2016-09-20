@@ -1,5 +1,8 @@
 package ch.sebastianm.dynamicconf.main.activities;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import ch.sebastianm.dynamicconf.R;
+import ch.sebastianm.dynamicconf.main.controllers.MainPageController;
 
 public class Page_Parent extends AppCompatActivity {
 
@@ -20,51 +25,34 @@ public class Page_Parent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_widget_settings);
-        setUpSpinner();
+        setUpNavButton();
     }
-    Spinner navSpinner;
+    Button navButton;
 
-    public int getViewPos()
-    {
-        return 0;
-    }
-
-    public void setUpSpinner() {
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        navSpinner = (Spinner) findViewById(R.id.spinner_nav_settings);
-        navSpinner.setSelection(getViewPos());
-        baseValue = getViewPos();
-        addListenerOnSpinnerItemSelection();
+    public void setUpNavButton() {
+        navButton = (Button) findViewById(R.id.settingsButton);
+        addOnklickListener();
     }
 
-    int baseValue = 0;
-    public void addListenerOnSpinnerItemSelection() {
-        navSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                if (baseValue != pos) {
-                    Intent intent = null;
-                    switch (pos) {
-                        case 0:
-                            intent = new Intent(getApplicationContext(), Main_Overview.class);
-                            break;
-                        case 1:
-                            intent = new Intent(getApplicationContext(), Widget_Settings.class);
-                            break;
-                        case 2:
-                            intent = new Intent(getApplicationContext(), Field_Settings.class);
-                            break;
-                    }
-                    baseValue = pos;
-                    startActivity(intent);
-                }
+    public void addOnklickListener() {
+        navButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                new AlertDialog.Builder(v.getContext())
+                        .setTitle("Settings")
+                        .setMessage("What do you want to change?")
+                        .setPositiveButton("Widgets", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(getApplicationContext(), Main_Placement.class));
+                            }
+                        })
+                        .setNegativeButton("Settings", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(getApplicationContext(), Field_Settings.class));
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
             }
-
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-
         });
     }
 

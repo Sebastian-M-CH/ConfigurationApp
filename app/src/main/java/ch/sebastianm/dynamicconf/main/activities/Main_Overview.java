@@ -38,7 +38,7 @@ public class Main_Overview extends Page_Parent {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__overview);
-        setUpSpinner();
+        setUpNavButton();
         setUpContent();
     }
 
@@ -71,6 +71,7 @@ public class Main_Overview extends Page_Parent {
                     c2.setMinimumHeight(height);
                     c2.setBackgroundDrawable(gd1);
                     tr.addView(c1);
+                    tr.addView(c2);
                     tr.setMinimumHeight(height);
                     tr.setLayoutParams(p1);
                     ll.addView(tr);
@@ -88,11 +89,6 @@ public class Main_Overview extends Page_Parent {
         if (scale == null)
             scale = context.getResources().getDisplayMetrics().density;
         return (int) ((float) dp * scale);
-    }
-
-    @Override
-    public int getViewPos() {
-        return 0;
     }
 
 
