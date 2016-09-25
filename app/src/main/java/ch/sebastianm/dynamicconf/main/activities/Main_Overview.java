@@ -2,6 +2,7 @@ package ch.sebastianm.dynamicconf.main.activities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -27,6 +28,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import ch.sebastianm.dynamicconf.R;
+import ch.sebastianm.dynamicconf.main.constants.Settings;
 import ch.sebastianm.dynamicconf.main.controllers.MainPageController;
 import ch.sebastianm.dynamicconf.main.models.UIModels.WidgetUI;
 
@@ -39,10 +41,14 @@ public class Main_Overview extends Page_Parent {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__overview);
         setUpNavButton();
+        dynamicConfPref = getSharedPreferences("DynamciConf", Context.MODE_PRIVATE);
+        settingsConstants = new Settings();
+        height =  dynamicConfPref.getInt(settingsConstants.ROWHEIGH, settingsConstants.ROWHEIGHTDEFAULT);
         setUpContent();
     }
-
-    int height = 200;
+    Settings settingsConstants;
+    SharedPreferences dynamicConfPref;
+    int height;
     int i = 0;
 
     public void setUpContent() {

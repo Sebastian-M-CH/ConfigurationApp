@@ -35,7 +35,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Amount Columns"
             android:id="@+id/textView3"
-            android:layout_marginTop="66dp"
+            android:layout_marginTop="59dp"
             android:textSize="18dp"
             android:layout_below="@+id/textView2"
             android:layout_alignParentLeft="true"
@@ -44,55 +44,69 @@
         <SeekBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar"
+            android:id="@+id/seekBarAmountColumns"
             android:layout_below="@+id/textView3"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/amountCLoumns"
-            android:layout_toStartOf="@+id/amountCLoumns" />
+            android:layout_toLeftOf="@+id/amountColumns"
+            android:layout_toStartOf="@+id/amountColumns"
+            android:longClickable="false"
+            android:max="4" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="                     "
-            android:id="@+id/amountCLoumns"
+            android:id="@+id/amountColumns"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignBottom="@+id/seekBar"
-            android:layout_alignTop="@+id/seekBar" />
+            android:layout_alignBottom="@+id/seekBarAmountColumns"
+            android:layout_alignTop="@+id/seekBarAmountColumns" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Amount Rows"
+            android:text="Height Rows"
             android:id="@+id/textView4"
             android:layout_marginTop="46dp"
             android:textSize="18dp"
-            android:layout_below="@+id/seekBar"
+            android:layout_below="@+id/seekBarAmountColumns"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <SeekBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar2"
+            android:id="@+id/seekBarRowHeight"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/textView4"
-            android:layout_alignRight="@+id/seekBar"
-            android:layout_alignEnd="@+id/seekBar" />
+            android:layout_alignRight="@+id/seekBarAmountColumns"
+            android:layout_alignEnd="@+id/seekBarAmountColumns"
+            android:max="600" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="                     "
-            android:id="@+id/amountRows"
-            android:layout_alignTop="@+id/seekBar2"
+            android:id="@+id/heightRows"
+            android:layout_alignTop="@+id/seekBarRowHeight"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/saveButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/textView3"
+            android:layout_toRightOf="@+id/textView3" />
 
     </RelativeLayout>
 </RelativeLayout>
