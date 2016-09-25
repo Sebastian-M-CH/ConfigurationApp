@@ -1,5 +1,8 @@
 package ch.sebastianm.dynamicconf.main.controllers.repository;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -7,6 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ch.sebastianm.dynamicconf.main.constants.Settings;
+import ch.sebastianm.dynamicconf.main.controllers.Converter.WidgetDataToPlainDataConverter;
 import ch.sebastianm.dynamicconf.main.models.Datamodels.WidgetData;
 
 /**
@@ -17,65 +22,50 @@ public class FileRepository {
     private static FileRepository _instance;
 
     String resourceString;
-    File file;
+    WidgetDataToPlainDataConverter converter = new WidgetDataToPlainDataConverter();
 
-    public synchronized static FileRepository getInstance()
+    Settings settingsConstant = new Settings();
+
+    SharedPreferences dynamicConfPref;
+    SharedPreferences.Editor dynamicConfEditor;
+
+    public synchronized static FileRepository getInstance(Context con)
     {
         if (_instance == null)
         {
-            _instance = new FileRepository();
+            _instance = new FileRepository(con);
         }
         return _instance;
     }
 
-    private FileRepository() {
-        file  = new File("settings");
-            int length = (int) file.length();
-
-        byte[] bytes = new byte[length];
-
-        FileInputStream in = null;
-        try {
-            in = new FileInputStream(file);
-            try {
-                in.read(bytes);
-                resourceString  = new String(bytes);
-            } finally {
-                in.close();
-            }
-        } catch (IOException e) {
-            createNewFile(file);
-            resourceString = "";
-        }
-
+    private FileRepository(Context con) {
+        dynamicConfPref = con.getSharedPreferences("DynamciConf", Context.MODE_PRIVATE);
+        dynamicConfEditor  = dynamicConfPref.edit();
+        resourceString = dynamicConfPref.getString(settingsConstant.DATA, "");
     }
 
-    public void createNewFile(File file)
-    {
-        try {
-            FileOutputStream stream = new FileOutputStream(file);
-            try {
-                stream.write("".getBytes());
-            } finally {
-                stream.close();
-            }
-        }
-        catch(Exception e) {
-        }
+    public void save(List<WidgetData> objects) {
+        String toSave = getPlainData(objects);
+        dynamicConfEditor.putString(settingsConstant.DATA, toSave);
+        dynamicConfEditor.commit();
     }
 
     public List<WidgetData> getWidgetData() {
-        List<WidgetData> widgetDataList = new ArrayList<WidgetData>();
-        String[] widgetListSplit = resourceString.split("|");
-        for (String widget: widgetListSplit ) {
-            System.out.println(widget);
-            String[] widgetSplit = widget.split(";");
-            if(widgetSplit.length != 3)
-                continue;
-            WidgetData widgetData = new WidgetData(widgetSplit[0], Integer.parseInt(widgetSplit[1]), Integer.parseInt(widgetSplit[2]));
-            widgetDataList.add(widgetData);
+        List<String> widgetDataList = new ArrayList<String>();
+        for (String value:resourceString.split("|")) {
+            widgetDataList.add(value);
         }
-        return widgetDataList;
+        return converter.getWidgetFromData(widgetDataList);
+    }
+    public String getPlainData(List<WidgetData> objects) {
+        String result = "";
+        for (String row: converter.objectToData(objects)) {
+            if(result.equals(""))
+                result = row;
+            else
+                result = result + "|" + row;
+        }
+        return result;
     }
 
 }

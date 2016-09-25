@@ -12,4 +12,7 @@ public class Settings {
     public int AMOUNTCOLUMNAMIN = 1;
     public int ROWHEIGHTMIN = 150;
 
+
+    public String DATA = "data";
+
 }

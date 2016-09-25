@@ -48,16 +48,16 @@ public class WidgetDataToPlainDataConverter {
 
     public List<WidgetData> getWidgetFromData(List<String> data)
     {
-        int x = -1;
+        int x = 0;
         List<WidgetData> widgets = new ArrayList<WidgetData>();
         for (String line: data) {
-            x++;
             int y = 0;
             String[] spli = line.split(";");
             for (String element:spli ) {
                 widgets.add(new WidgetData(element, x, y));
                 y++;
             }
+            x++;
         }
         return widgets;
 
