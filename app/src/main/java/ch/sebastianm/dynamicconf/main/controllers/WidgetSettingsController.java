@@ -13,8 +13,7 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
  */
 public class WidgetSettingsController {
 
-    public void MainPageController(Widget_Settings view) {
-        this.view = view;
+    public WidgetSettingsController() {
     }
 
     private int x;
@@ -47,8 +46,6 @@ public class WidgetSettingsController {
     }
 
     public void save(String id) {
-        // Savelogic
-
     }
 
     public List<ControlParent> getSuperclasses() {

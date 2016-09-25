@@ -12,7 +12,7 @@ import android.widget.TableRow;
 
 import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.constants.Settings;
-import ch.sebastianm.dynamicconf.main.controllers.MainPageController;
+import ch.sebastianm.dynamicconf.main.controllers.MainPlacementController;
 
 public class MainPageParent extends Page_Parent {
     @Override
@@ -26,7 +26,10 @@ public class MainPageParent extends Page_Parent {
         height = dynamicConfPref.getInt(settingsConstants.ROWHEIGH, settingsConstants.ROWHEIGHTDEFAULT);
         columns = dynamicConfPref.getInt(settingsConstants.AMOUNTCOLUMNS, settingsConstants.AMOUNTCOLUMNSDEFAULT);
         setUpContent();
+        init();
     }
+
+    public void init(){ }
 
     Settings settingsConstants;
     SharedPreferences dynamicConfPref;

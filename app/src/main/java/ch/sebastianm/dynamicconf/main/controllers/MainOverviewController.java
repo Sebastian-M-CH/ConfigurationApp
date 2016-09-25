@@ -11,20 +11,25 @@ import ch.sebastianm.dynamicconf.main.controllers.repository.FileRepository;
 /**
  * Created by Sebastian on 15.09.2016.
  */
-public class MainPageController {
+public class MainOverviewController {
 
-    public void MainPageController(Main_Overview view) {
+    public MainOverviewController(Main_Overview view) {
        this.view = view;
+        init();
    }
 
     public Main_Overview view;
 
-    public FileRepository fileRepo = FileRepository.getInstance();
+    public FileRepository repo;
 
     public WidgetDataToWidgetUI widgetDataToWidgetUI = new WidgetDataToWidgetUI();
 
+    private void init(){
+        repo = FileRepository.getInstance(view.getApplicationContext());
+    }
+
     public List<WidgetUI> getUIWidgets() {
-        List<WidgetData> widgetDataList = fileRepo.getWidgetData();
+        List<WidgetData> widgetDataList = repo.getWidgetData();
         return widgetDataToWidgetUI.map(widgetDataList);
     }
 

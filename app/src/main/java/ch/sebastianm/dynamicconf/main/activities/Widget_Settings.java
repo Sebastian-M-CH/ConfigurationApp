@@ -19,7 +19,11 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 
 public class Widget_Settings extends Page_Parent {
 
-    WidgetSettingsController widgetSettingsController = new WidgetSettingsController();
+    public Widget_Settings(WidgetSettingsController controller){
+
+    }
+
+    WidgetSettingsController widgetSettingsController;
 
     ExpandableListAdapter listAdapter;
     List<String> listDataHeader;
@@ -64,5 +68,7 @@ public class Widget_Settings extends Page_Parent {
         }
 
     }
+
+
 
 }
