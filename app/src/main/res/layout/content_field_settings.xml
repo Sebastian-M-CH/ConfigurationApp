@@ -12,16 +12,87 @@
     tools:context=".main.activities.Main_Overview"
     tools:showIn="@layout/activity_field_settings">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fields"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Field Settings"
             android:id="@+id/textView2"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Amount Columns"
+            android:id="@+id/textView3"
+            android:layout_marginTop="66dp"
+            android:textSize="18dp"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar"
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/amountCLoumns"
+            android:layout_toStartOf="@+id/amountCLoumns" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="                     "
+            android:id="@+id/amountCLoumns"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@+id/seekBar"
+            android:layout_alignTop="@+id/seekBar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Amount Rows"
+            android:id="@+id/textView4"
+            android:layout_marginTop="46dp"
+            android:textSize="18dp"
+            android:layout_below="@+id/seekBar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar2"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView4"
+            android:layout_alignRight="@+id/seekBar"
+            android:layout_alignEnd="@+id/seekBar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="                     "
+            android:id="@+id/amountRows"
+            android:layout_alignTop="@+id/seekBar2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
 </RelativeLayout>
