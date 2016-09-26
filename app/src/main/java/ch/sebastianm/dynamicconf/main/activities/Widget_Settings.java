@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,28 +20,24 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 
 public class Widget_Settings extends Page_Parent {
 
-    public Widget_Settings(WidgetSettingsController controller){
-
-    }
-
     WidgetSettingsController widgetSettingsController;
 
     ExpandableListAdapter listAdapter;
     List<String> listDataHeader;
     HashMap<String, List<ControlParent>> listDataChild;
 
-    String placement;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_widget_settings);
         setUpNavButton();
-        Bundle extras = getIntent().getExtras();
-        placement = extras.getString("placement");
-        widgetSettingsController.getPlacement(Integer.valueOf(placement.split(";")[0]),Integer.valueOf(placement.split(";")[1]));
-        createContent();
+        Bundle bundle = getIntent().getExtras();
 
+        if(bundle.getInt("x")!= -1 && bundle.getInt("y") != -1)
+        {
+            widgetSettingsController = new WidgetSettingsController(this,bundle.getInt("x"),bundle.getInt("y"));
+        }
+        createContent();
     }
 
     private void prepareListData() {
@@ -59,7 +56,7 @@ public class Widget_Settings extends Page_Parent {
         List<ControlParent> superclasses = widgetSettingsController.getSuperclasses();
         LinearLayout ll = (LinearLayout) findViewById(R.id.linearLayout);
         prepareListData();
-        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild, widgetSettingsController);
         for (ControlParent superclass :superclasses ) {
             ExpandableListView exListView = new ExpandableListView(this);
             exListView.setTag(superclass.getTitel());

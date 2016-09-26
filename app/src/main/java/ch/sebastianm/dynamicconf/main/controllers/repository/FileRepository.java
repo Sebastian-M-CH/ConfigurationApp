@@ -2,6 +2,7 @@ package ch.sebastianm.dynamicconf.main.controllers.repository;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -37,11 +38,12 @@ public class FileRepository {
         }
         return _instance;
     }
+    Context con;
 
     private FileRepository(Context con) {
         dynamicConfPref = con.getSharedPreferences("DynamciConf", Context.MODE_PRIVATE);
         dynamicConfEditor  = dynamicConfPref.edit();
-        resourceString = dynamicConfPref.getString(settingsConstant.DATA, "");
+        this.con = con;
     }
 
     public void save(List<WidgetData> objects) {
@@ -51,21 +53,21 @@ public class FileRepository {
     }
 
     public List<WidgetData> getWidgetData() {
+        resourceString = dynamicConfPref.getString(settingsConstant.DATA, "");
         List<String> widgetDataList = new ArrayList<String>();
-        for (String value:resourceString.split("|")) {
-            widgetDataList.add(value);
+        if(resourceString.contains("|")) {
+            for (String value : resourceString.split("\\|")) {
+                if (value != "")
+                    widgetDataList.add(value);
+            }
         }
+        else if(!resourceString.equals("") && !resourceString.contains("|"))
+            widgetDataList.add(resourceString);
+
         return converter.getWidgetFromData(widgetDataList);
     }
     public String getPlainData(List<WidgetData> objects) {
-        String result = "";
-        for (String row: converter.objectToData(objects)) {
-            if(result.equals(""))
-                result = row;
-            else
-                result = result + "|" + row;
-        }
-        return result;
+        return converter.objectToData(objects);
     }
 
 }

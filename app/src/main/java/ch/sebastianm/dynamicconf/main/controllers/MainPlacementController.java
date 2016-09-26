@@ -1,5 +1,7 @@
 package ch.sebastianm.dynamicconf.main.controllers;
 
+import android.widget.Toast;
+
 import java.util.List;
 
 import ch.sebastianm.dynamicconf.main.activities.Main_Overview;
@@ -36,6 +38,7 @@ public class MainPlacementController {
     List<WidgetData> widgetList;
 
     public String getMatchingWidgetName(int x, int y) {
+        widgetList = repo.getWidgetData();
         for (WidgetData data: widgetList ) {
             if (data.getX() == x && data.getY() == y)
             { ControlParent control =  widgetDataToWidgetUI.map(data).getControl();

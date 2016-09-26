@@ -2,8 +2,10 @@ package ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 
@@ -15,6 +17,7 @@ public class ButtonControl extends ControlParent{
     public Button prepareBusinessButton(Button button, Context con) {
         button.setOnClickListener(getBusinessListener(con));
         button.setText(getTitel());
+        button.setTextColor(Color.BLACK);
         return button;
     }
 
@@ -43,7 +46,6 @@ public class ButtonControl extends ControlParent{
             }
         };
     }
-
 
     @Override
     public String getGroup() { return "btn";}

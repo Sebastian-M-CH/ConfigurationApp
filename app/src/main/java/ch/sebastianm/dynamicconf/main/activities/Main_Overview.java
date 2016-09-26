@@ -1,7 +1,7 @@
 package ch.sebastianm.dynamicconf.main.activities;
 
 import android.content.Context;
-import android.widget.Button;
+import android.view.View;
 
 import ch.sebastianm.dynamicconf.main.controllers.MainOverviewController;
 
@@ -14,8 +14,8 @@ public class Main_Overview extends MainPageParent {
     }
 
     @Override
-    public Button getButton(Context con, int x, int y)
+    public View getButton(Context con, int x, int y)
     {
-        return new Button(con);
+        return mainPageController.getButton(getBaseContext(),x,y);
     }
 }

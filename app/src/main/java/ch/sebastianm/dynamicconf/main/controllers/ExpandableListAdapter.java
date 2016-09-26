@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.activities.Main_Overview;
@@ -30,12 +31,14 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private List<String> _listDataHeader; // header titles
     // child data in format of header title, child title
     private HashMap<String, List<ControlParent>> _listDataChild;
+    private WidgetSettingsController controller;
 
     public ExpandableListAdapter(Context context, List<String> listDataHeader,
-                                 HashMap<String, List<ControlParent>> listChildData) {
+                                 HashMap<String, List<ControlParent>> listChildData, WidgetSettingsController con) {
         this._context = context;
         this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;
+        this.controller = con;
     }
 
     @Override
@@ -70,9 +73,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
-    public View.OnClickListener getPlacementListener(final Context con, String id) {
+    public View.OnClickListener getPlacementListener(final Context con,final String id) {
         return new View.OnClickListener() {
             public void onClick(View v) {
+                controller.save(id);
                 con.startActivity(getFlagedIntent(con));
             }
         };

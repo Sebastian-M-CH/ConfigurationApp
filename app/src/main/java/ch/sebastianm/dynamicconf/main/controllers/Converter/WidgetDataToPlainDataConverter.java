@@ -11,53 +11,24 @@ import ch.sebastianm.dynamicconf.main.models.Datamodels.WidgetData;
  * Created by Sebastian on 21.09.2016.
  */
 public class WidgetDataToPlainDataConverter {
-    public List<String> objectToData(final List<WidgetData> widgets) {
-        Collections.sort(widgets, new Comparator<WidgetData>() {
-            public int compare(WidgetData w1, WidgetData w2) {
-                if(w1.getX() >w2.getX())
-                    return 1;
-                else if(w1.getX() < w2.getX())
-                    return 0;
-                else{
-                    if(w1.getY() >w2.getY())
-                        return 1;
-                    else if(w1.getY() < w2.getY())
-                        return 0;
-                    else
-                        return 1;
-
-                }
-            }
-        });
-        List<String> result = new ArrayList<String>();
-        int last=0;
-        String resultLine="";
+    public String objectToData(final List<WidgetData> widgets) {
+        String result = "";
         for (WidgetData wid:widgets ) {
-            if(last!= wid.getX())
-            {
-                result.add(resultLine);
-                resultLine = "";
-            }
-            if(resultLine != "")
-                resultLine = resultLine + ";";
-            resultLine = resultLine + wid.getControlID();
+            if(result != "")
+                result = result + "|";
+            result = result + wid.getControlID() + ";" + wid.getX() + ";" + wid.getY();
         }
         return result;
     }
 
 
-    public List<WidgetData> getWidgetFromData(List<String> data)
-    {
-        int x = 0;
+    public List<WidgetData> getWidgetFromData(List<String> data) {
         List<WidgetData> widgets = new ArrayList<WidgetData>();
         for (String line: data) {
-            int y = 0;
-            String[] spli = line.split(";");
-            for (String element:spli ) {
-                widgets.add(new WidgetData(element, x, y));
-                y++;
-            }
-            x++;
+                String[] splitted = line.split(";");
+            if(splitted.length != 3)
+                continue;
+            widgets.add(new WidgetData(splitted[0], Integer.valueOf(splitted[1]), Integer.valueOf(splitted[2])));
         }
         return widgets;
 

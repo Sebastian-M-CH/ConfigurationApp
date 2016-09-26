@@ -1,6 +1,7 @@
 package ch.sebastianm.dynamicconf.main.models.UIModels;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.Button;
 
 /**
@@ -12,7 +13,7 @@ public class ControlParent {
     public String getId() {
         return id;
     }
-    public Button getUIElement(Context con) { return null;}
+    public View getUIElement(Context con) { return null;}
     public String getGroup() { return "";}
     public String getTitel(){
         return "";

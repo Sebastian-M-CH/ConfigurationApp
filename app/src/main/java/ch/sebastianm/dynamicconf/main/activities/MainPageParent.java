@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.TableLayout;
@@ -55,14 +56,11 @@ public class MainPageParent extends Page_Parent {
                 for (; i < (ll.getHeight()) / height; i++) {
                     TableRow tr = new TableRow(ll.getContext());
                     for (int columnCounter = 0; columnCounter < columns; columnCounter++) {
-                        Button btn = getButton(ll.getContext(), i, columnCounter);
+                        View btn = getButton(ll.getContext(), i, columnCounter);
                         btn.setBackgroundColor(Color.WHITE);
                         btn.setMinimumHeight(height);
-                        btn.setHeight(height);
                         btn.setMinimumHeight(height);
                         btn.setMinimumWidth(ll.getWidth() / (columns));
-                        btn.setWidth(ll.getWidth() / (columns));
-                        btn.setMaxWidth(ll.getWidth() / (columns));
                         btn.setBackgroundDrawable(gd1);
                         tr.addView(btn);
                     }
@@ -77,7 +75,7 @@ public class MainPageParent extends Page_Parent {
 
 
     }
-    public Button getButton(Context con, int x, int y)
+    public View getButton(Context con, int x, int y)
     {
         return new Button(con);
     }

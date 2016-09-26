@@ -1,11 +1,17 @@
 package ch.sebastianm.dynamicconf.main.controllers;
 
+import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import ch.sebastianm.dynamicconf.main.activities.Widget_Settings;
 import ch.sebastianm.dynamicconf.main.constants.ContentClasses;
 import ch.sebastianm.dynamicconf.main.constants.SuperClasses;
+import ch.sebastianm.dynamicconf.main.controllers.repository.FileRepository;
+import ch.sebastianm.dynamicconf.main.models.Datamodels.WidgetData;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 
 /**
@@ -13,17 +19,23 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
  */
 public class WidgetSettingsController {
 
-    public WidgetSettingsController() {
-    }
-
-    private int x;
-    private int y;
-
-    public void getPlacement(int x, int y)
-    {
+    public WidgetSettingsController(Widget_Settings view, int x, int y) {
         this.x = x;
         this.y = y;
+        this.view = view;
+        init();
     }
+
+    public FileRepository repo;
+
+    private void init(){
+        repo = FileRepository.getInstance(view.getApplicationContext());
+        widgetList = repo.getWidgetData();
+    }
+
+    public List<WidgetData> widgetList;
+    private int x;
+    private int y;
 
     public Widget_Settings view;
 
@@ -46,6 +58,8 @@ public class WidgetSettingsController {
     }
 
     public void save(String id) {
+        widgetList.add(new WidgetData(id,x,y));
+        repo.save(widgetList);
     }
 
     public List<ControlParent> getSuperclasses() {
