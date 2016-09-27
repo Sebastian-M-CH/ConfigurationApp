@@ -13,6 +13,7 @@ import ch.sebastianm.dynamicconf.main.constants.SuperClasses;
 import ch.sebastianm.dynamicconf.main.controllers.repository.FileRepository;
 import ch.sebastianm.dynamicconf.main.models.Datamodels.WidgetData;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
+import ch.sebastianm.dynamicconf.main.models.Widget;
 
 /**
  * Created by Sebastian on 16.09.2016.
@@ -58,8 +59,20 @@ public class WidgetSettingsController {
     }
 
     public void save(String id) {
+        widgetList.removeAll(getWidgetDataByPosition(x,y,widgetList));
         widgetList.add(new WidgetData(id,x,y));
         repo.save(widgetList);
+    }
+
+    public List<WidgetData> getWidgetDataByPosition(int x, int y, List<WidgetData> base) {
+        List<WidgetData> result = new ArrayList<WidgetData>();
+        for (WidgetData widget:base ) {
+            if (widget.getY() == y && widget.getX() == x)
+                result.add(widget);
+        }
+        return  result;
+
+
     }
 
     public List<ControlParent> getSuperclasses() {

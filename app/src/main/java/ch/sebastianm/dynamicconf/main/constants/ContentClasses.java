@@ -3,7 +3,9 @@ package ch.sebastianm.dynamicconf.main.constants;
 import java.util.ArrayList;
 import java.util.List;
 
+import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.AirPlaneModeButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.GPSButtonControl;
+import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.WIFIButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 
 /**
@@ -27,6 +29,8 @@ public class ContentClasses {
     private ContentClasses() {
         contentClassList = new ArrayList<ControlParent>();
         contentClassList.add(new GPSButtonControl());
+        contentClassList.add(new WIFIButtonControl());
+        contentClassList.add(new AirPlaneModeButtonControl());
     }
 
     public List<ControlParent> getModelList()
