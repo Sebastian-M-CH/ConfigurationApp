@@ -1,6 +1,7 @@
 package ch.sebastianm.dynamicconf.main.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +35,7 @@ public class Field_Settings extends Page_Parent {
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 dynamicConfEditor.commit();
+                startActivity(new Intent(getApplicationContext(), Main_Overview.class));
             }
         });
     }
@@ -55,11 +57,27 @@ public class Field_Settings extends Page_Parent {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                progress = ((int)Math.round(progress/stepsize))*stepsize;
+                progress = ((int) Math.round(progress / stepsize)) * stepsize;
                 seekBar.setProgress(progress);
                 view.setText(String.valueOf(progress + min));
                 edit.putInt(property, progress + min);
             }
         });
+    }
+
+    @Override
+    public String[] possibleTitles() {
+        String[] result =  new String[2];
+        result[0] = "Overview";
+        result[1] = "Placement";
+        return result;
+    }
+
+    @Override
+    public Intent[] possibleIntents() {
+        Intent[] result =  new Intent[2];
+        result[0] = new Intent(getApplicationContext(), Main_Overview.class);
+        result[1] = new Intent(getApplicationContext(), Main_Placement.class);
+        return result;
     }
 }

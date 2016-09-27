@@ -33,20 +33,28 @@ public class Page_Parent extends AppCompatActivity {
                 new AlertDialog.Builder(v.getContext())
                         .setTitle("Settings")
                         .setMessage("What do you want to change?")
-                        .setPositiveButton("Widgets", new DialogInterface.OnClickListener() {
+                        .setPositiveButton(possibleTitles()[0], new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(getApplicationContext(), Main_Placement.class));
+                                startActivity(possibleIntents()[0]);
                             }
                         })
-                        .setNegativeButton("Settings", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(possibleTitles()[1], new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(getApplicationContext(), Field_Settings.class));
+                                startActivity(possibleIntents()[1]);
                             }
                         })
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
             }
         });
+    }
+
+    public String[] possibleTitles() {
+        return new String[2];
+    }
+
+    public Intent[] possibleIntents() {
+        return new Intent[2];
     }
 
 
