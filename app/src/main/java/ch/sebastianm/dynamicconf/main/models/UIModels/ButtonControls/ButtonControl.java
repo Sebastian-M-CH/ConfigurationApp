@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import ch.sebastianm.dynamicconf.R;
+import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 
 /**
@@ -14,9 +16,11 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
  */
 public class ButtonControl extends ControlParent{
 
+    DynamicConfConstantes constants = new DynamicConfConstantes();
+
     public Button prepareBusinessButton(Button button, Context con) {
         button.setOnClickListener(getBusinessListener(con));
-        button.setText(getTitel());
+        button.setText(getTitel(con));
         button.setTextColor(Color.BLACK);
         return button;
     }
@@ -27,8 +31,8 @@ public class ButtonControl extends ControlParent{
     }
 
     @Override
-    public String getTitel(){
-        return "Buttons";
+    public String getTitel(Context con){
+        return con.getResources().getString(R.string.title_buttons);
     }
 
     public Intent getFlagedIntent(){
@@ -48,6 +52,6 @@ public class ButtonControl extends ControlParent{
     }
 
     @Override
-    public String getGroup() { return "btn";}
+    public String getGroup() { return constants.BUTTONGROUPID;}
 
 }

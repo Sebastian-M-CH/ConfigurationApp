@@ -2,16 +2,11 @@ package ch.sebastianm.dynamicconf.main.controllers.repository;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ch.sebastianm.dynamicconf.main.constants.Settings;
+import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
 import ch.sebastianm.dynamicconf.main.controllers.Converter.WidgetDataToPlainDataConverter;
 import ch.sebastianm.dynamicconf.main.models.Datamodels.WidgetData;
 
@@ -25,7 +20,7 @@ public class FileRepository {
     String resourceString;
     WidgetDataToPlainDataConverter converter = new WidgetDataToPlainDataConverter();
 
-    Settings settingsConstant = new Settings();
+    DynamicConfConstantes settingsConstant = new DynamicConfConstantes();
 
     SharedPreferences dynamicConfPref;
     SharedPreferences.Editor dynamicConfEditor;

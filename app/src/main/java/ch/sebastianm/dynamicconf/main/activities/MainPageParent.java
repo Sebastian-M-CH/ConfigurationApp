@@ -12,7 +12,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 
 import ch.sebastianm.dynamicconf.R;
-import ch.sebastianm.dynamicconf.main.constants.Settings;
+import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
 import ch.sebastianm.dynamicconf.main.controllers.MainPlacementController;
 
 public class MainPageParent extends Page_Parent {
@@ -22,8 +22,8 @@ public class MainPageParent extends Page_Parent {
         setContentView(R.layout.activity_main__overview);
         setUpNavButton();
         setUpContent();
-        dynamicConfPref = getSharedPreferences("DynamciConf", Context.MODE_PRIVATE);
-        settingsConstants = new Settings();
+        settingsConstants = new DynamicConfConstantes();
+        dynamicConfPref = getSharedPreferences(settingsConstants.APPLICATION, Context.MODE_PRIVATE);
         height = dynamicConfPref.getInt(settingsConstants.ROWHEIGH, settingsConstants.ROWHEIGHTDEFAULT);
         columns = dynamicConfPref.getInt(settingsConstants.AMOUNTCOLUMNS, settingsConstants.AMOUNTCOLUMNSDEFAULT);
         setUpContent();
@@ -32,7 +32,7 @@ public class MainPageParent extends Page_Parent {
 
     public void init(){ }
 
-    Settings settingsConstants;
+    DynamicConfConstantes settingsConstants;
     SharedPreferences dynamicConfPref;
     int height;
     int columns;

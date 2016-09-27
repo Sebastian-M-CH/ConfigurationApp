@@ -4,6 +4,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.activities.Main_Overview;
 import ch.sebastianm.dynamicconf.main.activities.Main_Placement;
 import ch.sebastianm.dynamicconf.main.controllers.Converter.WidgetDataToWidgetUI;
@@ -43,10 +44,10 @@ public class MainPlacementController {
             if (data.getX() == x && data.getY() == y)
             { ControlParent control =  widgetDataToWidgetUI.map(data).getControl();
                 if (control != null)
-                    return control.getTitel();
+                    return control.getTitel(view);
             }
         }
-        return "empty";
+        return view.getResources().getString(R.string.title_empty_field);
     }
 
 

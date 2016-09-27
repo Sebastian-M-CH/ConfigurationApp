@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
+import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.controllers.MainPlacementController;
 
 public class Main_Placement extends MainPageParent {
@@ -37,8 +38,8 @@ public class Main_Placement extends MainPageParent {
     @Override
     public String[] possibleTitles() {
         String[] result =  new String[2];
-        result[0] = "Overview";
-        result[1] = "Field Settings";
+        result[0] = getResources().getString(R.string.main_overview_title);
+        result[1] = getResources().getString(R.string.field_settings_title);
         return result;
     }
 

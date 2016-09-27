@@ -31,8 +31,8 @@ public class Page_Parent extends AppCompatActivity {
         navButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 new AlertDialog.Builder(v.getContext())
-                        .setTitle("Settings")
-                        .setMessage("What do you want to change?")
+                        .setTitle(getResources().getString(R.string.navigation_window_title))
+                        .setMessage(getResources().getString(R.string.navigation_window_title))
                         .setPositiveButton(possibleTitles()[0], new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 startActivity(possibleIntents()[0]);

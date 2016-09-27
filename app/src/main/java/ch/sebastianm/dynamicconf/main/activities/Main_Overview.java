@@ -6,6 +6,7 @@ import android.view.View;
 
 import java.lang.reflect.Field;
 
+import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.controllers.MainOverviewController;
 
 public class Main_Overview extends MainPageParent {
@@ -25,8 +26,8 @@ public class Main_Overview extends MainPageParent {
     @Override
     public String[] possibleTitles() {
         String[] result =  new String[2];
-        result[0] = "Field Settings";
-        result[1] = "Placement";
+        result[0] = getResources().getString(R.string.field_settings_title);
+        result[1] = getResources().getString(R.string.main_placement_title);
         return result;
     }
 

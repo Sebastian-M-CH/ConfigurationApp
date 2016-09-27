@@ -1,12 +1,17 @@
 <resources>
     <string name="app_name">DynamicConf</string>
     <string name="action_settings">Settings</string>
-
-    <string-array name="settings_array">
-        <item>Main Page</item>
-        <item>Widget settings</item>
-        <item>Field Settings</item>
-    </string-array>
-
+    <string name="main_overview_title">Main page</string>
+    <string name="main_placement_title">Content settings</string>
+    <string name="field_settings_title">Field Settings</string>
+    <string name="navigation_window_title">Settings</string>
+    <string name="navigation_window_body">What</string>
+    <string name="title_empty_field">empty</string>
+    <string name="title_buttons">Buttons</string>
+    <string name="title_buttons_gps">GPS Settings</string>
+    <string name="applicationTitle">DynamicConfg</string>
+    <string name="amount_columns_text">Amount Columns</string>
+    <string name="rows_height_text">Rows height</string>
+    <string name="save_btn_title">Save</string>
 
 </resources>

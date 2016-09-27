@@ -46,7 +46,7 @@ public class Widget_Settings extends Page_Parent {
 
         int index = 0;
         for (ControlParent pare: widgetSettingsController.getSuperclasses()) {
-            listDataHeader.add(pare.getTitel());
+            listDataHeader.add(pare.getTitel(this));
             listDataChild.put(listDataHeader.get(index), widgetSettingsController.getUIElementsByType(pare));
             index++;
         }
@@ -59,7 +59,7 @@ public class Widget_Settings extends Page_Parent {
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild, widgetSettingsController);
         for (ControlParent superclass :superclasses ) {
             ExpandableListView exListView = new ExpandableListView(this);
-            exListView.setTag(superclass.getTitel());
+            exListView.setTag(superclass.getTitel(this));
             exListView.setAdapter(listAdapter);
             ll.addView(exListView);
         }

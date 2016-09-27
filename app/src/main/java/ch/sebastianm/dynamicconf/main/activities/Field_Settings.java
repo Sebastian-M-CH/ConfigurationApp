@@ -10,20 +10,20 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import ch.sebastianm.dynamicconf.R;
-import ch.sebastianm.dynamicconf.main.constants.Settings;
+import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
 
 public class Field_Settings extends Page_Parent {
 
     SharedPreferences dynamicConfPref;
     SharedPreferences.Editor dynamicConfEditor;
-    Settings settingsConstant = new Settings();
+    DynamicConfConstantes settingsConstant = new DynamicConfConstantes();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_field_settings);
         setUpNavButton();
-        dynamicConfPref = getSharedPreferences("DynamciConf", Context.MODE_PRIVATE);
+        dynamicConfPref = getSharedPreferences(settingsConstant.APPLICATION, Context.MODE_PRIVATE);
         dynamicConfEditor  = dynamicConfPref.edit();
         setUpSeekBar((SeekBar) findViewById(R.id.seekBarAmountColumns), (TextView) findViewById(R.id.amountColumns), 1, dynamicConfEditor, settingsConstant.AMOUNTCOLUMNS, settingsConstant.AMOUNTCOLUMNSDEFAULT, settingsConstant.AMOUNTCOLUMNAMIN);
         setUpSeekBar((SeekBar) findViewById(R.id.seekBarRowHeight),(TextView) findViewById(R.id.heightRows),10, dynamicConfEditor, settingsConstant.ROWHEIGH, settingsConstant.ROWHEIGHTDEFAULT, settingsConstant.ROWHEIGHTMIN);
@@ -68,8 +68,8 @@ public class Field_Settings extends Page_Parent {
     @Override
     public String[] possibleTitles() {
         String[] result =  new String[2];
-        result[0] = "Overview";
-        result[1] = "Placement";
+        result[0] = getResources().getString(R.string.main_overview_title);
+        result[1] = getResources().getString(R.string.main_placement_title);
         return result;
     }
 

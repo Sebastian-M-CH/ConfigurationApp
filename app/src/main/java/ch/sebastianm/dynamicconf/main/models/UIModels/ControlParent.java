@@ -15,7 +15,7 @@ public class ControlParent {
     }
     public View getUIElement(Context con) { return null;}
     public String getGroup() { return "";}
-    public String getTitel(){
+    public String getTitel(Context con){
         return "";
     }
 }
