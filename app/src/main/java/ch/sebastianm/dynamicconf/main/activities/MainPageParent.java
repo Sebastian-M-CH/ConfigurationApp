@@ -57,7 +57,7 @@ public class MainPageParent extends Page_Parent {
                     TableRow tr = new TableRow(ll.getContext());
                     for (int columnCounter = 0; columnCounter < columns; columnCounter++) {
                         View btn = getButton(ll.getContext(), i, columnCounter);
-                        btn.setBackgroundColor(Color.WHITE);
+                        btn.setBackgroundColor(Color.RED);
                         btn.setMinimumHeight(height);
                         btn.setMinimumHeight(height);
                         btn.setMinimumWidth(ll.getWidth() / (columns));

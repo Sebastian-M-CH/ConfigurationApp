@@ -51,7 +51,7 @@
             android:layout_toLeftOf="@+id/amountColumns"
             android:layout_toStartOf="@+id/amountColumns"
             android:longClickable="false"
-            android:max="4" />
+            android:max="2" />
 
         <TextView
             android:layout_width="wrap_content"
