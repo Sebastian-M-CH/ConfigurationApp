@@ -23,7 +23,6 @@
         android:layout_alignParentBottom="true"
         android:longClickable="true"
         android:minHeight="50dp"
-        android:background="@color/colorPrimary"
         android:layout_alignRight="@+id/contentTableLayout"
         android:layout_alignEnd="@+id/contentTableLayout" />
 
