@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#000000"
+            android:background="@color/colorSecondary"
             app:popupTheme="@style/AppTheme.PopupOverlay" >
 
             <TextView
@@ -35,7 +35,7 @@
                 android:layout_marginRight="3mm"
                 android:text="@string/action_settings"
                 android:textColor="#D3D3D3"
-                android:background="#000000"
+                android:background="@color/colorSecondary"
                 />
 
         </android.support.v7.widget.Toolbar>

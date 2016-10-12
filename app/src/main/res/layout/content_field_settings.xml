@@ -45,24 +45,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/seekBarAmountColumns"
-            android:layout_below="@+id/textView3"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/amountColumns"
             android:layout_toStartOf="@+id/amountColumns"
             android:longClickable="false"
-            android:max="2" />
+            android:max="1"
+            android:layout_below="@+id/textView3"
+            android:layout_alignEnd="@+id/saveButton" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="                     "
             android:id="@+id/amountColumns"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignBottom="@+id/seekBarAmountColumns"
-            android:layout_alignTop="@+id/seekBarAmountColumns" />
+            android:layout_alignTop="@+id/seekBarAmountColumns"
+            android:layout_toStartOf="@+id/heightRows"
+            android:layout_alignEnd="@+id/heightRows" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -83,30 +81,27 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/textView4"
-            android:layout_alignRight="@+id/seekBarAmountColumns"
-            android:layout_alignEnd="@+id/seekBarAmountColumns"
-            android:max="400" />
+            android:max="400"
+            android:layout_alignEnd="@+id/seekBarAmountColumns" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="                     "
             android:id="@+id/heightRows"
             android:layout_alignTop="@+id/seekBarRowHeight"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/save_btn_title"
             android:id="@+id/saveButton"
+            android:background="@drawable/roundbutton"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="20dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@+id/textView3"
-            android:layout_toRightOf="@+id/textView3" />
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 </RelativeLayout>

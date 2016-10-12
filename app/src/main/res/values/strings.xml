@@ -9,7 +9,7 @@
     <string name="title_empty_field">empty</string>
     <string name="title_buttons">Buttons</string>
     <string name="title_buttons_gps">GPS Settings</string>
-    <string name="applicationTitle">DynamicConfg</string>
+    <string name="applicationTitle">DynamicConf</string>
     <string name="amount_columns_text">Amount Columns</string>
     <string name="rows_height_text">Rows height</string>
     <string name="save_btn_title">Save</string>
