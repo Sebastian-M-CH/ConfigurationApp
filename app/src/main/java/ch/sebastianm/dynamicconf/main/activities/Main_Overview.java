@@ -13,6 +13,10 @@ public class Main_Overview extends MainPageParent {
     public MainOverviewController mainPageController;
 
     @Override
+    public void setActivity()
+    { setContentView(R.layout.activity_main__overview);}
+
+    @Override
     public void init(){
         mainPageController = new MainOverviewController(this);
     }

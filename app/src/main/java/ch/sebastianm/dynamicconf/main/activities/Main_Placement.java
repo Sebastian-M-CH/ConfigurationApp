@@ -12,6 +12,11 @@ public class Main_Placement extends MainPageParent {
     public MainPlacementController mainPageController;
 
     @Override
+    public void setActivity()
+    { setContentView(R.layout.activity_main__placement);}
+
+
+    @Override
     public void init(){
         mainPageController = new MainPlacementController(this);
     }

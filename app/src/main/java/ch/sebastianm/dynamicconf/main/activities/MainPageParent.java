@@ -19,7 +19,7 @@ public class MainPageParent extends Page_Parent {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main__overview);
+        setActivity();
         setUpContent();
         setUpMainBtn();
         setUpFieldBtn();
@@ -31,6 +31,9 @@ public class MainPageParent extends Page_Parent {
         setUpContent();
         init();
     }
+
+    public void setActivity()
+    { setContentView(R.layout.activity_main__overview);}
 
     public void init(){ }
 

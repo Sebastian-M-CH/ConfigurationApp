@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".main.activities.Main_Overview"
+    tools:context=".main.activities.Field_Settings"
     tools:showIn="@layout/activity_field_settings">
 
     <RelativeLayout
