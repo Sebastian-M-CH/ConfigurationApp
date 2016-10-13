@@ -22,8 +22,10 @@ public class Field_Settings extends Page_Parent {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_field_settings);
-        setUpNavButton();
         dynamicConfPref = getSharedPreferences(settingsConstant.APPLICATION, Context.MODE_PRIVATE);
+        setUpMainBtn();
+        setUpFieldBtn();
+        setUpConfigurationBtn();
         dynamicConfEditor  = dynamicConfPref.edit();
         setUpSeekBar((SeekBar) findViewById(R.id.seekBarAmountColumns), (TextView) findViewById(R.id.amountColumns), 1, dynamicConfEditor, settingsConstant.AMOUNTCOLUMNS, settingsConstant.AMOUNTCOLUMNSDEFAULT, settingsConstant.AMOUNTCOLUMNAMIN);
         setUpSeekBar((SeekBar) findViewById(R.id.seekBarRowHeight),(TextView) findViewById(R.id.heightRows),10, dynamicConfEditor, settingsConstant.ROWHEIGH, settingsConstant.ROWHEIGHTDEFAULT, settingsConstant.ROWHEIGHTMIN);
@@ -65,19 +67,4 @@ public class Field_Settings extends Page_Parent {
         });
     }
 
-    @Override
-    public String[] possibleTitles() {
-        String[] result =  new String[2];
-        result[0] = getResources().getString(R.string.main_overview_title);
-        result[1] = getResources().getString(R.string.main_placement_title);
-        return result;
-    }
-
-    @Override
-    public Intent[] possibleIntents() {
-        Intent[] result =  new Intent[2];
-        result[0] = new Intent(getApplicationContext(), Main_Overview.class);
-        result[1] = new Intent(getApplicationContext(), Main_Placement.class);
-        return result;
-    }
 }

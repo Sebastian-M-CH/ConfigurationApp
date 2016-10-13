@@ -16,29 +16,51 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorSecondary"
+            android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/applicationTitle"
-                android:textSize="5mm"/>
-
-            <Button
-                android:id="@+id/settingsButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="right"
-                android:layout_marginRight="3mm"
-                android:text="@string/action_settings"
-                android:textColor="#D3D3D3"
-                android:background="@color/colorSecondary"
+                android:textSize="5mm"
                 />
 
         </android.support.v7.widget.Toolbar>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnMain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@color/colorSecondary"
+                android:text="@string/main_overview_title" />
+
+            <Button
+                android:id="@+id/btnWidget"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/choosenColor"
+                android:gravity="center"
+                android:text="@string/main_placement_title" />
+
+            <Button
+                android:id="@+id/btnField"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorSecondary"
+                android:gravity="center"
+                android:text="@string/field_settings_title" />
+
+        </LinearLayout>
+
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_widget_settings" />

@@ -35,20 +35,5 @@ public class Main_Placement extends MainPageParent {
         };
     }
 
-    @Override
-    public String[] possibleTitles() {
-        String[] result =  new String[2];
-        result[0] = getResources().getString(R.string.main_overview_title);
-        result[1] = getResources().getString(R.string.field_settings_title);
-        return result;
-    }
-
-    @Override
-    public Intent[] possibleIntents() {
-        Intent[] result =  new Intent[2];
-        result[0] = new Intent(getApplicationContext(), Main_Overview.class);
-        result[1] = new Intent(getApplicationContext(), Field_Settings.class);
-        return result;
-    }
 }
 

@@ -30,7 +30,9 @@ public class Widget_Settings extends Page_Parent {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_widget_settings);
-        setUpNavButton();
+        setUpMainBtn();
+        setUpFieldBtn();
+        setUpConfigurationBtn();
         Bundle bundle = getIntent().getExtras();
 
         if(bundle.getInt("x")!= -1 && bundle.getInt("y") != -1)

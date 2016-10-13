@@ -20,8 +20,10 @@ public class MainPageParent extends Page_Parent {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__overview);
-        setUpNavButton();
         setUpContent();
+        setUpMainBtn();
+        setUpFieldBtn();
+        setUpConfigurationBtn();
         settingsConstants = new DynamicConfConstantes();
         dynamicConfPref = getSharedPreferences(settingsConstants.APPLICATION, Context.MODE_PRIVATE);
         height = dynamicConfPref.getInt(settingsConstants.ROWHEIGH, settingsConstants.ROWHEIGHTDEFAULT);

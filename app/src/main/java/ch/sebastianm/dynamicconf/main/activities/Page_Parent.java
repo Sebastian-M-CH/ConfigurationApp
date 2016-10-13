@@ -18,43 +18,27 @@ public class Page_Parent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_widget_settings);
-        setUpNavButton();
-    }
-    Button navButton;
-
-    public void setUpNavButton() {
-        navButton = (Button) findViewById(R.id.settingsButton);
-        addOnklickListener();
+        setUpMainBtn();
+        setUpFieldBtn();
+        setUpConfigurationBtn();
     }
 
-    public void addOnklickListener() {
-        navButton.setOnClickListener(new View.OnClickListener() {
+    public void setUpMainBtn() {
+        addOnklickListener((Button) findViewById(R.id.btnMain), new Intent(getApplicationContext(), Main_Overview.class));
+    }
+    public void setUpFieldBtn() {
+        addOnklickListener((Button) findViewById(R.id.btnField), new Intent(getApplicationContext(), Field_Settings.class));
+    }
+    public void setUpConfigurationBtn() {
+        addOnklickListener((Button) findViewById(R.id.btnWidget), new Intent(getApplicationContext(), Main_Placement.class));
+    }
+
+    public void addOnklickListener(Button btn, final Intent intent) {
+        btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                new AlertDialog.Builder(v.getContext())
-                        .setTitle(getResources().getString(R.string.navigation_window_title))
-                        .setMessage(getResources().getString(R.string.navigation_window_title))
-                        .setPositiveButton(possibleTitles()[0], new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(possibleIntents()[0]);
-                            }
-                        })
-                        .setNegativeButton(possibleTitles()[1], new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(possibleIntents()[1]);
-                            }
-                        })
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .show();
+                startActivity(intent);
             }
         });
-    }
-
-    public String[] possibleTitles() {
-        return new String[2];
-    }
-
-    public Intent[] possibleIntents() {
-        return new Intent[2];
     }
 
 
