@@ -5,11 +5,13 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
@@ -52,8 +54,6 @@ public class MainPageParent extends Page_Parent {
         ViewTreeObserver vto = ll.getViewTreeObserver();
         vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             public boolean onPreDraw() {
-
-                android.widget.TableRow.LayoutParams p1 = new android.widget.TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
                 for (; i < (ll.getHeight()) / height; i++) {
                     TableRow tr = new TableRow(ll.getContext());
                     for (int columnCounter = 0; columnCounter < columns; columnCounter++) {
@@ -69,7 +69,6 @@ public class MainPageParent extends Page_Parent {
                         tr.addView(btn);
                     }
                     tr.setMinimumHeight(height);
-                    tr.setLayoutParams(p1);
                     tr.setElevation(5);
                     ll.addView(tr);
                 }

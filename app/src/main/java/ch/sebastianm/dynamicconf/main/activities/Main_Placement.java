@@ -29,7 +29,7 @@ public class Main_Placement extends MainPageParent {
         Button btn = new Button(con);
         btn.setText(mainPageController.getMatchingWidgetName(x, y));
         btn.setOnClickListener(getClickListener(x, y));
-        btn.setBackgroundColor(Color.BLACK);
+        btn.setBackgroundColor(Color.WHITE);
         return btn;
     }
 
