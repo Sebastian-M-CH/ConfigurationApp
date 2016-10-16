@@ -8,6 +8,7 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.GPSButtonCo
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.WIFIButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.WifiSwitchControl;
+import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.WifiNameTextView;
 
 /**
  * Created by Sebastian on 15.09.2016.
@@ -36,6 +37,10 @@ public class ContentClasses {
 
         //Switches
         contentClassList.add(new WifiSwitchControl());
+
+
+        //TextViews
+        contentClassList.add(new WifiNameTextView());
     }
 
     public List<ControlParent> getModelList()

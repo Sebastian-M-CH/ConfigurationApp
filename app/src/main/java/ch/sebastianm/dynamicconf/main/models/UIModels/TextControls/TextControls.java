@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
@@ -16,40 +17,27 @@ public class TextControls extends ControlParent{
 
     DynamicConfConstantes constants = new DynamicConfConstantes();
 
-    public Switch prepateBusinessLogic(Switch switchControl, Context con) {
-        switchControl.setOnCheckedChangeListener(getBusinessListener(con));
-        switchControl.setChecked(getState(con));
-        switchControl.setText(getTitel(con));
-        switchControl.setTextColor(Color.BLACK);
-        return switchControl;
+    public TextView prepateBusinessLogic(TextView text, Context con) {
+        text.setText(getContentText(con));
+        text.setTextColor(Color.BLACK);
+        return text;
     }
 
     @Override
-    public Switch getUIElement(Context context){
-        return prepateBusinessLogic(new Switch(context), context);
+    public TextView getUIElement(Context context){
+        return prepateBusinessLogic(new TextView(context), context);
     }
 
     @Override
     public String getTitel(Context con){
-        return con.getResources().getString(R.string.title_switches);
+        return con.getResources().getString(R.string.title_textViews);
     }
 
-    public CompoundButton.OnCheckedChangeListener getBusinessListener(final Context con) {
-        return new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                setBusinessLogic(isChecked, con);
-            }
-        };
+    public String getContentText(final Context con) {
+        return "";
     }
-
-    public Boolean getState(Context con) {
-        return false;
-    }
-
-    public void setBusinessLogic(Boolean bool, Context con) {}
 
     @Override
-    public String getGroup() { return constants.SWITCHGROUPID;}
+    public String getGroup() { return constants.TEXTVIEWGROUPID;}
 
 }

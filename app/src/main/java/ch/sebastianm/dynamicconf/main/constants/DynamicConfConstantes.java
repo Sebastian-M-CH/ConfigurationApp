@@ -26,4 +26,7 @@ public class DynamicConfConstantes {
     public String SWITCHGROUPID = "swt";
     public final String WIFISWTID = "wifiswt";
 
+    public String TEXTVIEWGROUPID = "txtV";
+    public final String WIFITEXVID = "wifitxtV";
+
 }

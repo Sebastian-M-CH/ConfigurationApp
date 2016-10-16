@@ -7,6 +7,7 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.ButtonContr
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.GPSButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.SwitchControls;
+import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.TextControls;
 
 /**
  * Created by Sebastian on 15.09.2016.
@@ -30,6 +31,7 @@ public class SuperClasses {
         superclassList = new ArrayList<ControlParent>();
         superclassList.add(new ButtonControl());
         superclassList.add(new SwitchControls());
+        superclassList.add(new TextControls());
     }
 
     public List<ControlParent> getModelList()
