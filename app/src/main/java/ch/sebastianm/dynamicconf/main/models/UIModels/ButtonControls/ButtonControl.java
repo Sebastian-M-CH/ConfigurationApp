@@ -22,7 +22,6 @@ public class ButtonControl extends ControlParent{
         button.setOnClickListener(getBusinessListener(con));
         button.setText(getTitel(con));
         button.setTextColor(Color.BLACK);
-        button.setBackgroundColor(Color.BLACK);
         return button;
     }
 

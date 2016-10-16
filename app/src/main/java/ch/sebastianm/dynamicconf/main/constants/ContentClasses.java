@@ -7,6 +7,7 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.AirPlaneMod
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.GPSButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.WIFIButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
+import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.WifiSwitchControl;
 
 /**
  * Created by Sebastian on 15.09.2016.
@@ -28,9 +29,13 @@ public class ContentClasses {
 
     private ContentClasses() {
         contentClassList = new ArrayList<ControlParent>();
+        //Buttons
         contentClassList.add(new GPSButtonControl());
         contentClassList.add(new WIFIButtonControl());
         contentClassList.add(new AirPlaneModeButtonControl());
+
+        //Switches
+        contentClassList.add(new WifiSwitchControl());
     }
 
     public List<ControlParent> getModelList()

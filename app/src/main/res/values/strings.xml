@@ -8,6 +8,7 @@
     <string name="navigation_window_body">What</string>
     <string name="title_empty_field">empty</string>
     <string name="title_buttons">Buttons</string>
+    <string name="title_switches">Switches</string>
     <string name="title_buttons_gps">GPS Settings</string>
     <string name="applicationTitle">DynamicConf</string>
     <string name="amount_columns_text">Amount Columns</string>
@@ -15,5 +16,7 @@
     <string name="save_btn_title">Save</string>
     <string name="title_buttons_wifi">Wifi settings</string>
     <string name="title_buttons_airplane">Airplane mode</string>
+
+    <string name="title_switch_wifi">Wifi ON/OFF</string>
 
 </resources>

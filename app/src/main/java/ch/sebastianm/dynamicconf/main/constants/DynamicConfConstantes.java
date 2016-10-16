@@ -20,7 +20,10 @@ public class DynamicConfConstantes {
     // widget
     public String BUTTONGROUPID = "btn";
     public final String GPSBTNID = "gpsBtn";
-    public final String WIFIID = "wifiBtn";
+    public final String WIFIBTNID = "wifiBtn";
     public String AirPlaneID = "airPlaBtn";
+
+    public String SWITCHGROUPID = "swt";
+    public final String WIFISWTID = "wifiswt";
 
 }

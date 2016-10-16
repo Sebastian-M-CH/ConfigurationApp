@@ -63,7 +63,6 @@ public class MainPageParent extends Page_Parent {
 
                         View btn = getButton(ll.getContext(), i, columnCounter);
                         btn.setMinimumHeight(height);
-                        btn.setMinimumHeight(height);
                         btn.setMinimumWidth(ll.getWidth() / (columns));
                         markSpecialIcons(gd1, btn);
                         btn.setBackgroundDrawable(gd1);

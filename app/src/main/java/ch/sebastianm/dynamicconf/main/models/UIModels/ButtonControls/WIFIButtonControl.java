@@ -16,7 +16,7 @@ public class WIFIButtonControl extends ButtonControl {
 
     @Override
     public String getId(){
-        return constantes.WIFIID;
+        return constantes.WIFIBTNID;
     }
 
     @Override

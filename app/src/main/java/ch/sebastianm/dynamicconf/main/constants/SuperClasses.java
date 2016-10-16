@@ -6,6 +6,7 @@ import java.util.List;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.ButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.GPSButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
+import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.SwitchControls;
 
 /**
  * Created by Sebastian on 15.09.2016.
@@ -28,6 +29,7 @@ public class SuperClasses {
     private SuperClasses() {
         superclassList = new ArrayList<ControlParent>();
         superclassList.add(new ButtonControl());
+        superclassList.add(new SwitchControls());
     }
 
     public List<ControlParent> getModelList()
