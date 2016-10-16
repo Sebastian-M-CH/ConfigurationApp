@@ -53,18 +53,19 @@ public class MainPageParent extends Page_Parent {
         vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             public boolean onPreDraw() {
 
-                GradientDrawable gd1 = new GradientDrawable();
-                gd1.setCornerRadius(0);
-
-                gd1.setStroke(2, Color.BLACK);
                 android.widget.TableRow.LayoutParams p1 = new android.widget.TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
                 for (; i < (ll.getHeight()) / height; i++) {
                     TableRow tr = new TableRow(ll.getContext());
                     for (int columnCounter = 0; columnCounter < columns; columnCounter++) {
+                        GradientDrawable gd1 = new GradientDrawable();
+                        gd1.setCornerRadius(0);
+                        gd1.setStroke(2, Color.BLACK);
+
                         View btn = getButton(ll.getContext(), i, columnCounter);
                         btn.setMinimumHeight(height);
                         btn.setMinimumHeight(height);
                         btn.setMinimumWidth(ll.getWidth() / (columns));
+                        markSpecialIcons(gd1, btn);
                         btn.setBackgroundDrawable(gd1);
                         tr.addView(btn);
                     }
@@ -79,6 +80,9 @@ public class MainPageParent extends Page_Parent {
 
 
     }
+
+    public void markSpecialIcons(GradientDrawable gd, View view){}
+
     public View getButton(Context con, int x, int y)
     {
         return new Button(con);

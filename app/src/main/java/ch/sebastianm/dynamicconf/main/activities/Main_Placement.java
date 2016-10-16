@@ -2,6 +2,9 @@ package ch.sebastianm.dynamicconf.main.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 
@@ -25,7 +28,8 @@ public class Main_Placement extends MainPageParent {
     public View getButton(Context con, int x, int y) {
         Button btn = new Button(con);
         btn.setText(mainPageController.getMatchingWidgetName(x, y));
-        btn.setOnClickListener(getClickListener(x,y));
+        btn.setOnClickListener(getClickListener(x, y));
+        btn.setBackgroundColor(Color.BLACK);
         return btn;
     }
 
@@ -38,6 +42,12 @@ public class Main_Placement extends MainPageParent {
                 v.getContext().startActivity(intent);
             }
         };
+    }
+
+    @Override
+    public void markSpecialIcons(GradientDrawable gd, View view){
+        if(view instanceof Button && ((Button)view).getText().equals(view.getResources().getString(R.string.title_empty_field)))
+         gd.setColor(ContextCompat.getColor(view.getContext(), R.color.selectedColor));
     }
 
 }

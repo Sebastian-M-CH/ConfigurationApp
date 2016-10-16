@@ -3,4 +3,5 @@
     <color name="colorPrimary">#25a25a</color>
     <color name="colorSecondary">#425d77</color>
     <color name="choosenColor">#34495E</color>
+    <color name="selectedColor">#e3e3e4</color>
 </resources>
