@@ -2,6 +2,7 @@ package ch.sebastianm.dynamicconf.main.models.UIModels.TextControls;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -17,15 +18,15 @@ public class TextControls extends ControlParent{
 
     DynamicConfConstantes constants = new DynamicConfConstantes();
 
-    public TextView prepateBusinessLogic(TextView text, Context con) {
+    public Button prepateBusinessLogic(Button text, Context con) {
         text.setText(getContentText(con));
         text.setTextColor(Color.BLACK);
         return text;
     }
 
     @Override
-    public TextView getUIElement(Context context){
-        return prepateBusinessLogic(new TextView(context), context);
+    public Button getUIElement(Context context){
+        return prepateBusinessLogic(new Button(context), context);
     }
 
     @Override
@@ -39,5 +40,12 @@ public class TextControls extends ControlParent{
 
     @Override
     public String getGroup() { return constants.TEXTVIEWGROUPID;}
+
+    public String cutResult(String result) {
+        if(result.length() >= 20)
+            return result.substring(0,17)+ "...";
+        else
+            return result;
+    }
 
 }
