@@ -7,7 +7,9 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.AirPlaneMod
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.GPSButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.WIFIButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
+import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.BluetoothSwitchControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.WifiSwitchControl;
+import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.BlueToothTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.WifiNameTextView;
 
 /**
@@ -37,10 +39,12 @@ public class ContentClasses {
 
         //Switches
         contentClassList.add(new WifiSwitchControl());
+        contentClassList.add(new BluetoothSwitchControl());
 
 
         //TextViews
         contentClassList.add(new WifiNameTextView());
+        contentClassList.add(new BlueToothTextView());
     }
 
     public List<ControlParent> getModelList()

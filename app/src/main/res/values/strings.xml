@@ -18,8 +18,10 @@
 
     <string name="title_switches">Switches</string>
     <string name="title_switch_wifi">Wifi ON/OFF</string>
+    <string name="title_switch_bluetooth">BlueTooth ON/OFF</string>
 
     <string name="title_textViews">Informations</string>
     <string name="title_textView_wifi_name">Wifi Name</string>
+    <string name="title_textView_bluetooth_name">BlueTooth Name</string>
 
 </resources>

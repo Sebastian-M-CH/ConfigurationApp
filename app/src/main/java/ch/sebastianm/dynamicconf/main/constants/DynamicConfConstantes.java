@@ -25,8 +25,10 @@ public class DynamicConfConstantes {
 
     public String SWITCHGROUPID = "swt";
     public final String WIFISWTID = "wifiswt";
+    public final String BLUETOOTHSWTID = "blueswt";
 
     public String TEXTVIEWGROUPID = "txtV";
     public final String WIFITEXVID = "wifitxtV";
+    public final String BLUETEXVID = "bluetxtV";
 
 }
