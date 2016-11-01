@@ -24,6 +24,13 @@ public class SwitchControls extends ControlParent{
         switchControl.setChecked(getState(con));
         switchControl.setText(getTitel(con));
         switchControl.setTextColor(Color.BLACK);
+
+        final float scale = con.getResources().getDisplayMetrics().density;
+        switchControl.setPadding(switchControl.getPaddingLeft() + (int) (10.0f * scale + 0.5f),
+                switchControl.getPaddingTop(),
+                switchControl.getPaddingRight(),
+                switchControl.getPaddingBottom());
+
         return switchControl;
     }
 

@@ -29,7 +29,8 @@ public class WifiNameTextView extends TextControls {
     public String getContentText(Context con){
         WifiManager wifiMgr = (WifiManager) con.getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
-        return wifiInfo.getSSID();
+        String result = wifiInfo.getSSID().substring(1,wifiInfo.getSSID().length()-1);
+        return cutResult(result);
     }
 
 }
