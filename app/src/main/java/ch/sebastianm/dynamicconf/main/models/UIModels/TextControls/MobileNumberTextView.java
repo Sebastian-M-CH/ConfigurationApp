@@ -1,7 +1,11 @@
 package ch.sebastianm.dynamicconf.main.models.UIModels.TextControls;
 
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.telephony.TelephonyManager;
 
 import ch.sebastianm.dynamicconf.R;
@@ -26,7 +30,6 @@ public class MobileNumberTextView extends TextControls {
 
     @Override
     public String getContentText(Context con){
-        
         TelephonyManager tm = (TelephonyManager)con.getSystemService(Context.TELEPHONY_SERVICE);
         String result = tm.getLine1Number();
         return cutResult(result);

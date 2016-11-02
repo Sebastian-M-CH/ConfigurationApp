@@ -23,6 +23,8 @@
     <string name="title_textViews">Informations</string>
     <string name="title_textView_wifi_name">Wifi Name</string>
     <string name="title_textView_bluetooth_name">BlueTooth Name</string>
+    <string name="title_textView_mobile_number">Mobile Number</string>
     <string name="title_textView_network_operator">Network Operator</string>
+    <string name="title_textView_android_version">Android Version</string>
 
 </resources>

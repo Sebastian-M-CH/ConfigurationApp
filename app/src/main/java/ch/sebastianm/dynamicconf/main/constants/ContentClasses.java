@@ -9,6 +9,7 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.WIFIButtonC
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.BluetoothSwitchControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.WifiSwitchControl;
+import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.AndroidVersionTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.BlueToothTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.MobileNumberTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.NetworkOperatorNameTextView;
@@ -49,6 +50,7 @@ public class ContentClasses {
         contentClassList.add(new BlueToothTextView());
         contentClassList.add(new MobileNumberTextView());
         contentClassList.add(new NetworkOperatorNameTextView());
+        contentClassList.add(new AndroidVersionTextView());
     }
 
     public List<ControlParent> getModelList()
