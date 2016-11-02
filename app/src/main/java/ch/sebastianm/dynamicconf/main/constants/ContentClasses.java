@@ -10,6 +10,8 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.BluetoothSwitchControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.WifiSwitchControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.BlueToothTextView;
+import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.MobileNumberTextView;
+import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.NetworkOperatorNameTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.WifiNameTextView;
 
 /**
@@ -45,6 +47,8 @@ public class ContentClasses {
         //TextViews
         contentClassList.add(new WifiNameTextView());
         contentClassList.add(new BlueToothTextView());
+        contentClassList.add(new MobileNumberTextView());
+        contentClassList.add(new NetworkOperatorNameTextView());
     }
 
     public List<ControlParent> getModelList()

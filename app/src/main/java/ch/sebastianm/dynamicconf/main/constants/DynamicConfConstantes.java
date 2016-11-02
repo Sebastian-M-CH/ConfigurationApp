@@ -30,5 +30,7 @@ public class DynamicConfConstantes {
     public String TEXTVIEWGROUPID = "txtV";
     public final String WIFITEXVID = "wifitxtV";
     public final String BLUETEXVID = "bluetxtV";
+    public final String MOBILETEXVID = "mobiletxtV";
+    public final String NETWORKOPERATORTEXTV = "networkoperatortxtV";
 
 }

@@ -42,6 +42,8 @@ public class TextControls extends ControlParent{
     public String getGroup() { return constants.TEXTVIEWGROUPID;}
 
     public String cutResult(String result) {
+        if(result == null)
+            return "";
         if(result.length() >= 20)
             return result.substring(0,17)+ "...";
         else
