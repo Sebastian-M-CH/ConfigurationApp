@@ -21,6 +21,8 @@ public class DynamicConfConstantes {
     public String BUTTONGROUPID = "btn";
     public final String GPSBTNID = "gpsBtn";
     public final String WIFIBTNID = "wifiBtn";
+    public final String ROAMINGBTN = "roamingBtn";
+    public final String BATTERYSAVINGBTN = "batterysavingBtn";
     public String AirPlaneID = "airPlaBtn";
 
     public String SWITCHGROUPID = "swt";

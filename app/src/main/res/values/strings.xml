@@ -17,6 +17,8 @@
     <string name="save_btn_title">Save</string>
     <string name="title_buttons_wifi">Wifi settings</string>
     <string name="title_buttons_airplane">Airplane mode</string>
+    <string name="title_buttons_battery_saving">Battery Saving</string>
+    <string name="title_buttons_data_roaming">Data Roaming</string>
 
     <string name="title_switches">Switches</string>
     <string name="title_switch_wifi">Wifi ON/OFF</string>

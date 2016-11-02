@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.AirPlaneModeButtonControl;
+import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.BatterySavingButtonControl;
+import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.DataRoamingButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.GPSButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.WIFIButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
@@ -41,6 +43,8 @@ public class ContentClasses {
         contentClassList.add(new GPSButtonControl());
         contentClassList.add(new WIFIButtonControl());
         contentClassList.add(new AirPlaneModeButtonControl());
+        contentClassList.add(new DataRoamingButtonControl());
+        contentClassList.add(new BatterySavingButtonControl());
 
         //Switches
         contentClassList.add(new WifiSwitchControl());
