@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">DynamicConf</string>
+    <string name="activ">activ</string>
+    <string name="inactiv">inactiv</string>
     <string name="action_settings">Settings</string>
     <string name="main_overview_title">Main page</string>
     <string name="main_placement_title">Configuration</string>
@@ -26,5 +28,8 @@
     <string name="title_textView_mobile_number">Mobile Number</string>
     <string name="title_textView_network_operator">Network Operator</string>
     <string name="title_textView_android_version">Android Version</string>
+    <string name="title_textView_current_date">Current Date</string>
+    <string name="title_textView_gps_state">GPS State</string>
+    <string name="title_textView_gps_state_text">GPS is :</string>
 
 </resources>

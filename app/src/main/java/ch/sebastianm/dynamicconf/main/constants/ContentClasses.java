@@ -11,6 +11,8 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.BluetoothSw
 import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.WifiSwitchControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.AndroidVersionTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.BlueToothTextView;
+import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.CurrentDateTextView;
+import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.GPSStateTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.MobileNumberTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.NetworkOperatorNameTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.WifiNameTextView;
@@ -51,6 +53,8 @@ public class ContentClasses {
         contentClassList.add(new MobileNumberTextView());
         contentClassList.add(new NetworkOperatorNameTextView());
         contentClassList.add(new AndroidVersionTextView());
+        contentClassList.add(new CurrentDateTextView());
+        contentClassList.add(new GPSStateTextView());
     }
 
     public List<ControlParent> getModelList()
