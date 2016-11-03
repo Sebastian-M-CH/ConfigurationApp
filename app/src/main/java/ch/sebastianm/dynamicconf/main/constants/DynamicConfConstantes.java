@@ -28,6 +28,8 @@ public class DynamicConfConstantes {
     public String SWITCHGROUPID = "swt";
     public final String WIFISWTID = "wifiswt";
     public final String BLUETOOTHSWTID = "blueswt";
+    public final String RINGMODEVIBRATIONSWTID = "ringmodevibrationswt";
+    public final String RINGMODESILENCESWTID = "ringmodesilentswt";
 
     public String TEXTVIEWGROUPID = "txtV";
     public final String WIFITEXVID = "wifitxtV";
@@ -37,5 +39,7 @@ public class DynamicConfConstantes {
     public final String CURRENTDATETEXV = "currentdatetxtV";
     public final String ANDROIDVERSIONTEXV = "androidversiontxtV";
     public final String GPSSTATETEXV = "gpsstatetxtV";
+    public final String CURRENTZIMEZONETEXID = "currenttimezonetxtV";
+    public final String FREESTORAGETEXV = "freestoragetxtV";
 
 }

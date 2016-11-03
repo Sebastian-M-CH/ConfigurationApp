@@ -23,9 +23,12 @@
     <string name="title_switches">Switches</string>
     <string name="title_switch_wifi">Wifi ON/OFF</string>
     <string name="title_switch_bluetooth">BlueTooth ON/OFF</string>
+    <string name="title_switch_vibration">Ringmode Vibration</string>
+    <string name="title_switch_silence">Ringmode Silence</string>
 
     <string name="title_textViews">Informations</string>
     <string name="title_textView_wifi_name">Wifi Name</string>
+    <string name="title_textView_current_time_zone">Current time zone</string>
     <string name="title_textView_bluetooth_name">BlueTooth Name</string>
     <string name="title_textView_mobile_number">Mobile Number</string>
     <string name="title_textView_network_operator">Network Operator</string>
@@ -33,5 +36,6 @@
     <string name="title_textView_current_date">Current Date</string>
     <string name="title_textView_gps_state">GPS State</string>
     <string name="title_textView_gps_state_text">GPS is :</string>
+    <string name="title_textView_free_storage">Free Storage</string>
 
 </resources>

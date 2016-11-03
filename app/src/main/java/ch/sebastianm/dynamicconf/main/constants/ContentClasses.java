@@ -10,10 +10,14 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.GPSButtonCo
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.WIFIButtonControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.BluetoothSwitchControl;
+import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.RingModeSilence;
+import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.RingModeVibration;
 import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.WifiSwitchControl;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.AndroidVersionTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.BlueToothTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.CurrentDateTextView;
+import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.CurrentTimeZoneTextView;
+import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.FreeStorageTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.GPSStateTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.MobileNumberTextView;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.NetworkOperatorNameTextView;
@@ -49,6 +53,8 @@ public class ContentClasses {
         //Switches
         contentClassList.add(new WifiSwitchControl());
         contentClassList.add(new BluetoothSwitchControl());
+        contentClassList.add(new RingModeSilence());
+        contentClassList.add(new RingModeVibration());
 
 
         //TextViews
@@ -59,6 +65,8 @@ public class ContentClasses {
         contentClassList.add(new AndroidVersionTextView());
         contentClassList.add(new CurrentDateTextView());
         contentClassList.add(new GPSStateTextView());
+        contentClassList.add(new CurrentTimeZoneTextView());
+        contentClassList.add(new FreeStorageTextView());
     }
 
     public List<ControlParent> getModelList()
