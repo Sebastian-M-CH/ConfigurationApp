@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
+import ch.sebastianm.dynamicconf.main.models.Datamodels.Updater.SwitchUpdater;
+import ch.sebastianm.dynamicconf.main.models.Datamodels.Updater.TextViewUpdater;
+import ch.sebastianm.dynamicconf.main.models.Datamodels.Updater.UpdataClass;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 
 /**
@@ -46,6 +49,9 @@ public class TextControls extends ControlParent{
 
     @Override
     public String getGroup() { return constants.TEXTVIEWGROUPID;}
+
+    @Override
+    public UpdataClass getUpdateClass(Context con) {return new TextViewUpdater(this, getUIElement(con));}
 
     public String cutResult(String result) {
         if(result == null)

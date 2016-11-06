@@ -5,8 +5,14 @@ import android.content.Intent;
 import android.net.wifi.WifiManager;
 import android.provider.Settings;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
+import ch.sebastianm.dynamicconf.main.listeners.BroadcastListener;
+import ch.sebastianm.dynamicconf.main.listeners.RingModeChangeListener;
+import ch.sebastianm.dynamicconf.main.listeners.WifiChangeListener;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ButtonControls.ButtonControl;
 
 /**
@@ -37,6 +43,13 @@ public class WifiSwitchControl extends SwitchControls {
     public Boolean getState(Context con) {
         WifiManager wifiManager = (WifiManager) con.getSystemService(Context.WIFI_SERVICE);
         return wifiManager.isWifiEnabled();
+    }
+
+    @Override
+    public Set<BroadcastListener> getListeners(Context con){
+        Set<BroadcastListener> bcl =  new HashSet<BroadcastListener>();
+        bcl.add(new WifiChangeListener());
+        return bcl;
     }
 
 }
