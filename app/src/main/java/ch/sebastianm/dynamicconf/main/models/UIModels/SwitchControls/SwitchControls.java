@@ -10,6 +10,8 @@ import android.widget.Switch;
 
 import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
+import ch.sebastianm.dynamicconf.main.models.Datamodels.Updater.SwitchUpdater;
+import ch.sebastianm.dynamicconf.main.models.Datamodels.Updater.UpdataClass;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 
 /**
@@ -34,9 +36,17 @@ public class SwitchControls extends ControlParent{
         return switchControl;
     }
 
+    private Switch view;
+
+    private Switch getView(Context con) {
+        if(view == null)
+            view = new Switch(con);
+        return view;
+    }
+
     @Override
     public Switch getUIElement(Context context){
-        return prepateBusinessLogic(new Switch(context), context);
+        return prepateBusinessLogic(getView(context), context);
     }
 
     @Override
@@ -61,5 +71,8 @@ public class SwitchControls extends ControlParent{
 
     @Override
     public String getGroup() { return constants.SWITCHGROUPID;}
+
+    @Override
+    public UpdataClass getUpdateClass(Context con) {return new SwitchUpdater(this, getUIElement(con));}
 
 }

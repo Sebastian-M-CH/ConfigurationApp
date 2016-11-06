@@ -4,8 +4,13 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.net.wifi.WifiManager;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
+import ch.sebastianm.dynamicconf.main.listeners.BroadcastListener;
+import ch.sebastianm.dynamicconf.main.listeners.RingModeChangeListener;
 
 /**
  * Created by Sebastian on 12.09.2016.
@@ -30,7 +35,7 @@ public class RingModeVibration extends SwitchControls {
         AudioManager audioManager = (AudioManager) con.getSystemService(Context.AUDIO_SERVICE);
         if(bool)
             audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-        else
+        else if(audioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE)
             audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
 
     }
@@ -39,6 +44,13 @@ public class RingModeVibration extends SwitchControls {
     public Boolean getState(Context con) {
         AudioManager audioManager = (AudioManager) con.getSystemService(Context.AUDIO_SERVICE);
         return (audioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE);
+    }
+
+    @Override
+    public Set<BroadcastListener> getListeners(Context con){
+        Set<BroadcastListener> bcl =  new HashSet<BroadcastListener>();
+        bcl.add(new RingModeChangeListener());
+        return bcl;
     }
 
 }

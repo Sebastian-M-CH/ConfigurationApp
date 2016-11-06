@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import ch.sebastianm.dynamicconf.R;
@@ -24,10 +25,16 @@ public class ButtonControl extends ControlParent{
         button.setTextColor(Color.BLACK);
         return button;
     }
+    private Button view;
 
+    private Button getView(Context con) {
+        if(view == null)
+            view = new Button(con);
+        return view;
+    }
     @Override
     public Button getUIElement(Context context){
-        return prepareBusinessButton(new Button(context), context);
+        return prepareBusinessButton(getView(context), context);
     }
 
     @Override

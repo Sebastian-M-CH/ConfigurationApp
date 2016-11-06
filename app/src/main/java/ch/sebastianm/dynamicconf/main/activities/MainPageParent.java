@@ -21,7 +21,9 @@ public class MainPageParent extends Page_Parent {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        finishedInit = false;
         setActivity();
+        prepareListener();
         setUpContent();
         setUpMainBtn();
         setUpFieldBtn();
@@ -32,7 +34,13 @@ public class MainPageParent extends Page_Parent {
         columns = dynamicConfPref.getInt(settingsConstants.AMOUNTCOLUMNS, settingsConstants.AMOUNTCOLUMNSDEFAULT);
         setUpContent();
         init();
+        finishedInit = true;
     }
+
+    public boolean finishedInit = false;
+
+    public void prepareListener()
+    {}
 
     public void setActivity()
     { setContentView(R.layout.activity_main__overview);}
@@ -48,6 +56,8 @@ public class MainPageParent extends Page_Parent {
     public void setUpContent() {
 
         final TableLayout ll = (TableLayout) findViewById(R.id.contentTableLayout);
+        ll.removeAllViews();
+
         ll.setStretchAllColumns(true);
         ll.bringToFront();
 

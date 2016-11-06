@@ -23,10 +23,16 @@ public class TextControls extends ControlParent{
         text.setTextColor(Color.BLACK);
         return text;
     }
+    private Button view;
 
+    private Button getView(Context con) {
+        if(view == null)
+            view = new Button(con);
+        return view;
+    }
     @Override
     public Button getUIElement(Context context){
-        return prepateBusinessLogic(new Button(context), context);
+        return prepateBusinessLogic(getView(context), context);
     }
 
     @Override

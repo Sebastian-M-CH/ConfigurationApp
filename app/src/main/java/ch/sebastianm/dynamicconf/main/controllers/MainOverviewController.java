@@ -1,14 +1,19 @@
 package ch.sebastianm.dynamicconf.main.controllers;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import ch.sebastianm.dynamicconf.main.activities.Main_Overview;
 import ch.sebastianm.dynamicconf.main.controllers.Converter.WidgetDataToWidgetUI;
+import ch.sebastianm.dynamicconf.main.listeners.BroadcastListener;
+import ch.sebastianm.dynamicconf.main.models.Datamodels.Updater.UpdataClass;
 import ch.sebastianm.dynamicconf.main.models.Datamodels.WidgetData;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 import ch.sebastianm.dynamicconf.main.models.UIModels.WidgetUI;
@@ -42,14 +47,37 @@ public class MainOverviewController {
     List<WidgetData> widgetList;
 
     public View getButton(Context con, int x, int y) {
-            widgetList = repo.getWidgetData();
-            for (WidgetData data: widgetList ) {
-                if (data.getX() == x && data.getY() == y)
-                { ControlParent control =  widgetDataToWidgetUI.map(data).getControl();
-                    if (control != null)
-                        return control.getUIElement(con);
-                }
+        widgetList = repo.getWidgetData();
+        for (WidgetData data: widgetList ) {
+            if (data.getX() == x && data.getY() == y)
+            { ControlParent control =  widgetDataToWidgetUI.map(data).getControl();
+                if (control != null)
+                    return control.getUIElement(con);
             }
-            return new Button(con);
         }
+        return new Button(con);
+    }
+
+    public ControlParent getControl(int x, int y) {
+        widgetList = repo.getWidgetData();
+        for (WidgetData data: widgetList ) {
+            if (data.getX() == x && data.getY() == y)
+            { ControlParent control =  widgetDataToWidgetUI.map(data).getControl();
+                if (control != null)
+                    return control;
+            }
+        }
+        return new ControlParent();
+    }
+    public Set<BroadcastListener> getListener(Context con, int x, int y) {
+        widgetList = repo.getWidgetData();
+        for (WidgetData data: widgetList ) {
+            if (data.getX() == x && data.getY() == y)
+            { ControlParent control =  widgetDataToWidgetUI.map(data).getControl();
+                if (control != null)
+                    return control.getListeners(con);
+            }
+        }
+        return new HashSet<BroadcastListener>();
+    }
 }
