@@ -71,6 +71,16 @@ public class FileRepository {
 
         return converter.getWidgetFromData(widgetDataList);
     }
+
+    public boolean containsElement(String id)
+    {
+        for (WidgetData widgetData : getWidgetData()) {
+            if(widgetData.getControlID().equals(id))
+                return true;
+        }
+        return false;
+    }
+
     public String getPlainData(List<WidgetData> objects) {
         return converter.objectToData(objects);
     }

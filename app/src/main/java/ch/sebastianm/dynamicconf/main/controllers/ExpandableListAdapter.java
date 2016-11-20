@@ -9,22 +9,17 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.provider.Settings;
-import android.support.annotation.ColorRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import ch.sebastianm.dynamicconf.R;
-import ch.sebastianm.dynamicconf.main.activities.Main_Overview;
 import ch.sebastianm.dynamicconf.main.activities.Main_Placement;
-import ch.sebastianm.dynamicconf.main.activities.Widget_Settings;
+import ch.sebastianm.dynamicconf.main.controllers.repository.FileRepository;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
@@ -33,13 +28,14 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private List<String> _listDataHeader;
     private HashMap<String, List<ControlParent>> _listDataChild;
     private WidgetSettingsController controller;
-
+    private FileRepository fileRepository;
     public ExpandableListAdapter(Context context, List<String> listDataHeader,
                                  HashMap<String, List<ControlParent>> listChildData, WidgetSettingsController con) {
         this._context = context;
         this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;
         this.controller = con;
+        this.fileRepository = FileRepository.getInstance(context);
     }
 
     @Override
@@ -59,19 +55,20 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         final String childText = ((ControlParent) getChild(groupPosition, childPosition)).getTitel(_context);
         final String id = ((ControlParent) getChild(groupPosition, childPosition)).getId();
+        final Boolean activ = !(fileRepository.containsElement(((ControlParent) getChild(groupPosition, childPosition)).getId()));
 
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this._context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.list_item, null);
+                convertView = infalInflater.inflate(R.layout.list_item, null);
+
+            Button buttonChild = (Button) convertView
+                    .findViewById(R.id.lblListItem);
+
+            buttonChild.setText(childText);
+            buttonChild.setOnClickListener(getPlacementListener(convertView.getContext(), id));
+            buttonChild.setEnabled(activ);
         }
-
-        Button buttonChild = (Button) convertView
-                .findViewById(R.id.lblListItem);
-
-        buttonChild.setText(childText);
-        buttonChild.setOnClickListener(getPlacementListener(convertView.getContext(), id));
-
         return convertView;
     }
 
