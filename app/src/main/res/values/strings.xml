@@ -38,4 +38,6 @@
     <string name="title_textView_gps_state_text">GPS is :</string>
     <string name="title_textView_free_storage">Free Storage</string>
 
+    <string name="fail">Failure</string>
+
 </resources>

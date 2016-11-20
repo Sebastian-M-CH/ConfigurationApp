@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.SwitchControls;
 
@@ -20,6 +21,8 @@ public class SwitchUpdater extends UpdataClass{
     @Override
     public void update(Context con) {
         Switch viewItem = (Switch) view;
-        viewItem.setChecked(((SwitchControls)updateLogic).getState(con));
+        try{viewItem.setChecked(((SwitchControls)updateLogic).getState(con));}
+        catch (Exception exce)
+        {}
     }
 }

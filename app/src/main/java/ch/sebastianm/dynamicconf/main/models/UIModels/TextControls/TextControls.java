@@ -35,7 +35,14 @@ public class TextControls extends ControlParent{
     }
     @Override
     public Button getUIElement(Context context){
-        return prepateBusinessLogic(getView(context), context);
+        try{return prepateBusinessLogic(getView(context), context);}
+        catch (Exception exeption)
+        {
+            Button button = new Button(context);
+            button.setText(context.getResources().getString(R.string.fail));
+            button.setEnabled(false);
+            return button;
+        }
     }
 
     @Override

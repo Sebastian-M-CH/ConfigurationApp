@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 import ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls.SwitchControls;
 import ch.sebastianm.dynamicconf.main.models.UIModels.TextControls.TextControls;
@@ -22,6 +23,9 @@ public class TextViewUpdater extends UpdataClass{
     @Override
     public void update(Context con) {
         Button viewItem = (Button) view;
-        viewItem.setText(((TextControls) updateLogic).getContentText(con));
+        try{viewItem.setText(((TextControls) updateLogic).getContentText(con));}
+        catch (Exception exce) {
+            viewItem.setText(con.getResources().getString(R.string.fail));
+        }
     }
 }

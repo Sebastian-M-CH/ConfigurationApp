@@ -46,7 +46,14 @@ public class SwitchControls extends ControlParent{
 
     @Override
     public Switch getUIElement(Context context){
-        return prepateBusinessLogic(getView(context), context);
+        try{return prepateBusinessLogic(getView(context), context);}
+        catch (Exception exce)
+        {
+            Switch switchFailur = new Switch(context);
+            switchFailur.setText(context.getResources().getString(R.string.fail));
+            switchFailur.setEnabled(false);
+            return switchFailur;
+        }
     }
 
     @Override

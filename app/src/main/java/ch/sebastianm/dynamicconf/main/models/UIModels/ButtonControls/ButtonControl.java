@@ -34,7 +34,14 @@ public class ButtonControl extends ControlParent{
     }
     @Override
     public Button getUIElement(Context context){
-        return prepareBusinessButton(getView(context), context);
+        try{return prepareBusinessButton(getView(context), context);}
+        catch (Exception exce)
+        {
+            Button button = new Button(context);
+            button.setText(context.getResources().getString(R.string.fail));
+            button.setEnabled(false);
+            return button;
+        }
     }
 
     @Override
