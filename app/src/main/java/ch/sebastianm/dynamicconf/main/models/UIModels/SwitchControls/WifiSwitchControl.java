@@ -10,6 +10,7 @@ import java.util.Set;
 
 import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
+import ch.sebastianm.dynamicconf.main.listeners.AirplaneModeChangeListener;
 import ch.sebastianm.dynamicconf.main.listeners.BroadcastListener;
 import ch.sebastianm.dynamicconf.main.listeners.RingModeChangeListener;
 import ch.sebastianm.dynamicconf.main.listeners.WifiChangeListener;
@@ -49,6 +50,7 @@ public class WifiSwitchControl extends SwitchControls {
     public Set<BroadcastListener> getListeners(Context con){
         Set<BroadcastListener> bcl =  new HashSet<BroadcastListener>();
         bcl.add(new WifiChangeListener());
+        bcl.add(new AirplaneModeChangeListener());
         return bcl;
     }
 
