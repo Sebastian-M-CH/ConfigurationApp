@@ -12,7 +12,7 @@ public class DynamicConfConstantes {
     public String DATA = "data";
 
     //Default
-    public int AMOUNTCOLUMNSDEFAULT = 2;
+    public int AMOUNTCOLUMNSDEFAULT = 1;
     public int ROWHEIGHTDEFAULT = 200;
     public int AMOUNTCOLUMNAMIN = 1;
     public int ROWHEIGHTMIN = 150;

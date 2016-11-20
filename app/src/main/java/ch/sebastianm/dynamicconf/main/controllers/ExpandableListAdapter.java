@@ -9,8 +9,10 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.provider.Settings;
+import android.support.annotation.ColorRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +30,7 @@ import ch.sebastianm.dynamicconf.main.models.UIModels.ControlParent;
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context _context;
-    private List<String> _listDataHeader; // header titles
-    // child data in format of header title, child title
+    private List<String> _listDataHeader;
     private HashMap<String, List<ControlParent>> _listDataChild;
     private WidgetSettingsController controller;
 
@@ -70,6 +71,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         buttonChild.setText(childText);
         buttonChild.setOnClickListener(getPlacementListener(convertView.getContext(), id));
+
         return convertView;
     }
 

@@ -29,6 +29,13 @@ public class Field_Settings extends Page_Parent {
         dynamicConfEditor  = dynamicConfPref.edit();
         setUpSeekBar((SeekBar) findViewById(R.id.seekBarAmountColumns), (TextView) findViewById(R.id.amountColumns), 1, dynamicConfEditor, settingsConstant.AMOUNTCOLUMNS, settingsConstant.AMOUNTCOLUMNSDEFAULT, settingsConstant.AMOUNTCOLUMNAMIN);
         setUpSeekBar((SeekBar) findViewById(R.id.seekBarRowHeight),(TextView) findViewById(R.id.heightRows),10, dynamicConfEditor, settingsConstant.ROWHEIGH, settingsConstant.ROWHEIGHTDEFAULT, settingsConstant.ROWHEIGHTMIN);
+
+        //Fixme bis das design behoben ist
+        findViewById(R.id.seekBarAmountColumns).setVisibility(View.INVISIBLE);
+        findViewById(R.id.amountColumns).setVisibility(View.INVISIBLE);
+        findViewById(R.id.textView3).setVisibility(View.INVISIBLE);
+
+
         addOnklickListenerSaveButton((Button) findViewById(R.id.saveButton));
     }
 

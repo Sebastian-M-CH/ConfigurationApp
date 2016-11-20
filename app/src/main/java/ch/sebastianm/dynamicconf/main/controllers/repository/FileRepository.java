@@ -9,6 +9,7 @@ import java.util.List;
 import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
 import ch.sebastianm.dynamicconf.main.controllers.Converter.WidgetDataToPlainDataConverter;
 import ch.sebastianm.dynamicconf.main.models.Datamodels.WidgetData;
+import ch.sebastianm.dynamicconf.main.models.Widget;
 
 /**
  * Created by Sebastian on 15.09.2016.
@@ -45,6 +46,15 @@ public class FileRepository {
         String toSave = getPlainData(objects);
         dynamicConfEditor.putString(settingsConstant.DATA, toSave);
         dynamicConfEditor.commit();
+    }
+
+    public void reduceWidgetListTo(int lastWidgetHeight){
+        List<WidgetData> newList = new ArrayList<WidgetData>();
+        for (WidgetData widgetData:getWidgetData()) {
+            if(widgetData.getX() < lastWidgetHeight)
+                newList.add(widgetData);
+        }
+        save(newList);
     }
 
     public List<WidgetData> getWidgetData() {

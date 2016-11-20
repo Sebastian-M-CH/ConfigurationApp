@@ -34,10 +34,8 @@ public class ContentClasses {
 
     public synchronized static ContentClasses getInstance()
     {
-        if (_instance == null)
-        {
-            _instance = new ContentClasses();
-        }
+        //FIXME Mehr Objecte aber das doppelte Parentproblem ist weg
+        _instance = new ContentClasses();
         return _instance;
     }
 

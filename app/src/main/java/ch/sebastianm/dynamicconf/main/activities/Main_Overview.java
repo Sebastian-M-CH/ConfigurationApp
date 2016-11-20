@@ -44,7 +44,6 @@ public class Main_Overview extends MainPageParent {
 
     @Override
     public void prepareListener() {
-        PackageManager pm = getPackageManager();
         listeners.add(rmCL);
         listeners.add(wCL);
 

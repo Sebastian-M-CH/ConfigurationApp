@@ -8,5 +8,8 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:id="@+id/lblListItem" />
+        android:id="@+id/lblListItem"
+        android:textAlignment="viewStart"
+        android:paddingLeft="50dp"
+        android:paddingRight="0dp" />
 </LinearLayout>

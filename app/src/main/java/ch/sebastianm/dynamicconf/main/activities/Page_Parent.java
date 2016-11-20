@@ -36,7 +36,6 @@ public class Page_Parent extends AppCompatActivity {
     public void addOnklickListener(Button btn, final Intent intent) {
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                unregisterListeners();
                 startActivity(intent);
             }
         });

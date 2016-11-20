@@ -16,12 +16,12 @@ import android.widget.TextView;
 import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
 import ch.sebastianm.dynamicconf.main.controllers.MainPlacementController;
+import ch.sebastianm.dynamicconf.main.controllers.repository.FileRepository;
 
 public class MainPageParent extends Page_Parent {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        finishedInit = false;
         setActivity();
         prepareListener();
         setUpContent();
@@ -34,10 +34,7 @@ public class MainPageParent extends Page_Parent {
         columns = dynamicConfPref.getInt(settingsConstants.AMOUNTCOLUMNS, settingsConstants.AMOUNTCOLUMNSDEFAULT);
         setUpContent();
         init();
-        finishedInit = true;
     }
-
-    public boolean finishedInit = false;
 
     public void prepareListener()
     {}
@@ -82,11 +79,16 @@ public class MainPageParent extends Page_Parent {
                     tr.setElevation(5);
                     ll.addView(tr);
                 }
+                cleanSelectedWidgets(i);
                 return true;
             }
         });
 
 
+    }
+
+    public void cleanSelectedWidgets(int lastWidget){
+        FileRepository.getInstance(getBaseContext()).reduceWidgetListTo(lastWidget);
     }
 
     public void markSpecialIcons(GradientDrawable gd, View view){}

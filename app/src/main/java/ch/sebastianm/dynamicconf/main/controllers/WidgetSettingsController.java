@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import ch.sebastianm.dynamicconf.main.activities.Widget_Settings;
 import ch.sebastianm.dynamicconf.main.constants.ContentClasses;
@@ -45,9 +48,16 @@ public class WidgetSettingsController {
     ContentClasses contentClasses = ContentClasses.getInstance();
 
     public List<ControlParent> getUIElementsByType(ControlParent controllparent) {
-        return filter(contentClasses.getModelList(), controllparent);
+        return sortListview(filter(contentClasses.getModelList(), controllparent));
     }
-
+    private List<ControlParent> sortListview(List<ControlParent> list) {
+        Collections.sort(list,new Comparator<ControlParent>() {
+            public int compare(ControlParent cp1, ControlParent cp2) {
+                return cp1.getTitel(view.getBaseContext()).compareToIgnoreCase(cp2.getTitel(view.getBaseContext()));
+            }
+        });
+        return list;
+    }
     public static List<ControlParent> filter(List<ControlParent> resourceList, ControlParent typeCheck) {
         List<ControlParent> result = new ArrayList<ControlParent>();
         for (ControlParent element: resourceList) {
