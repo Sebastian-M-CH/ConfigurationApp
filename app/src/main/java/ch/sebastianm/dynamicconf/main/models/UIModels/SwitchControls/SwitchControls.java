@@ -3,6 +3,7 @@ package ch.sebastianm.dynamicconf.main.models.UIModels.SwitchControls;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -26,11 +27,15 @@ public class SwitchControls extends ControlParent{
         switchControl.setChecked(getState(con));
         switchControl.setText(getTitel(con));
         switchControl.setTextColor(Color.BLACK);
+        switchControl.setPaintFlags(Paint.FAKE_BOLD_TEXT_FLAG);
+        switchControl.setLeft(20);
 
         final float scale = con.getResources().getDisplayMetrics().density;
-        switchControl.setPadding(switchControl.getPaddingLeft() + (int) (10.0f * scale + 0.5f),
+
+        switchControl.setPadding(
+                (int) (30.0f * scale + 0.5f),
                 switchControl.getPaddingTop(),
-                switchControl.getPaddingRight(),
+                (int) (30.0f * scale + 0.5f) ,
                 switchControl.getPaddingBottom());
 
         return switchControl;
