@@ -24,6 +24,7 @@ public class TextControls extends ControlParent{
     public Button prepateBusinessLogic(Button text, Context con) {
         text.setText(getContentText(con));
         text.setTextColor(Color.BLACK);
+        text.setTextSize(15);
         return text;
     }
     private Button view;

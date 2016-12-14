@@ -6,7 +6,10 @@ import android.net.wifi.WifiManager;
 import android.os.StatFs;
 
 import java.io.File;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 import ch.sebastianm.dynamicconf.R;
 import ch.sebastianm.dynamicconf.main.constants.DynamicConfConstantes;
@@ -30,7 +33,12 @@ public class CurrentTimeZoneTextView extends TextControls {
 
     @Override
     public String getContentText(Context con){
-        return cutResult(TimeZone.getDefault().getDisplayName());
+
+        Calendar mCalendar = new GregorianCalendar();
+        TimeZone mTimeZone = mCalendar.getTimeZone();
+        int mGMTOffset = mTimeZone.getRawOffset();
+        String text = mGMTOffset >= 0  ? "+":"";
+        return cutResult("GMT"+text+TimeUnit.HOURS.convert(mGMTOffset, TimeUnit.MILLISECONDS)+":00");
     }
 
 }

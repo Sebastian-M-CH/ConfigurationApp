@@ -26,6 +26,7 @@ public class SwitchControls extends ControlParent{
         switchControl.setOnCheckedChangeListener(getBusinessListener(con));
         switchControl.setChecked(getState(con));
         switchControl.setText(getTitel(con));
+        switchControl.setTextSize(15);
         switchControl.setTextColor(Color.BLACK);
         switchControl.setPaintFlags(Paint.FAKE_BOLD_TEXT_FLAG);
         switchControl.setLeft(20);

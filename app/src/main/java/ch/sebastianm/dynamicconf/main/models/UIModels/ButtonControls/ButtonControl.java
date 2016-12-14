@@ -22,6 +22,7 @@ public class ButtonControl extends ControlParent{
     public Button prepareBusinessButton(Button button, Context con) {
         button.setOnClickListener(getBusinessListener(con));
         button.setText(getTitel(con));
+        button.setTextSize(15);
         button.setTextColor(Color.BLACK);
         return button;
     }
